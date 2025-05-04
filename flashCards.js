@@ -1,3 +1,1 @@
-//JavaScript file for Flash-Cards
-
-//hej hej this is Angela
+//JavaScript file for FlashCards
