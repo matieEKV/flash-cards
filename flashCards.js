@@ -1,3 +1,5 @@
 //JavaScript file for Flash-Cards
 
-//testing tutorial
+//testing tutorial for Redi
+
+
