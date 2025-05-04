@@ -8,4 +8,7 @@
 // i understand 
 
 
+<<<<<<< HEAD
 >>>>>>> origin/TatianaBranch
+=======
+>>>>>>> AngelasBranch
