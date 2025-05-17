@@ -1,7 +1,54 @@
 /* CSS file for FlashCards */
-<<<<<<< HEAD
+body {
+    background: url(./images/denmarkBackground.png) no-repeat center center/cover;
+    background-color: rgba(255,255,255,0.9);
+    background-blend-mode: lighten;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* adjust positioning on the main axis */
+    gap: 40px;
+    margin-top: 55px;
+    flex-wrap: nowrap;
+}
 
-// now I understand 
-=======
-/* angelas test comment */
->>>>>>> AngelasBranch
+.welcomeCard {
+
+   background-color: cadetblue;
+   padding: 50px 50px 50px;
+   width: 60%;
+   box-shadow: 0 100px 50px (0, 0, 0, 0,1);
+   border-radius: 20px;
+   margin: auto;
+
+}
+
+.welcome {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: larger;
+   font-weight: 500;
+   color: white;
+}
+
+.bodyText{
+   font-family: Arial, Helvetica, sans-serif;
+   color: white;
+   gap: 40px;
+   margin-top: 55px;
+   
+
+}
+
+.startButton{
+   margin: auto;
+   font-size: larger;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   background-color: white;
+   padding: 10px 20px;
+   font-style: oblique;
+   color: red;
+   border-color: red;
+   border-radius: 10px;
+   gap: 40px;
+   margin-top: 55px;
+   
+}
