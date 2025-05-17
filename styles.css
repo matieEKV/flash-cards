@@ -1,7 +1,12 @@
 /* CSS file for FlashCards */
-<<<<<<< HEAD
-
-// now I understand 
-=======
-/* angelas test comment */
->>>>>>> AngelasBranch
+body {
+    background: url(./images/denmarkBackground.png) no-repeat center center/cover;
+    background-color: rgba(255,255,255,0.9);
+    background-blend-mode: lighten;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* adjust positioning on the main axis */
+    gap: 40px;
+    margin-top: 55px;
+    flex-wrap: nowrap;
+}
