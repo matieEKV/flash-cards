@@ -12,11 +12,12 @@ body {
 }
 
 .welcomeCard {
+   background-image: url(./images/flag\ Danmark101.jpg);
+   background-color:rgba(255,255,255,0.9);
+   background-blend-mode: ;
+   width: 600px;
+  height: 425px;
 
-   background-color: cadetblue;
-   padding: 50px 50px 50px;
-   width: 60%;
-   box-shadow: 0 100px 50px (0, 0, 0, 0,1);
    border-radius: 20px;
    margin: auto;
 
@@ -51,4 +52,23 @@ body {
    gap: 40px;
    margin-top: 55px;
    
+}
+
+.welcome{
+   color: red;
+   border-bottom: solid red;
+   padding-bottom: 30px;
+  
+}
+
+.bodyText{
+   color: red;
+   margin-top: 0%;
+}
+
+.top-welcome {
+   width: 488px;
+   height: 217px;
+   text-align: center;
+   justify-content: center;
 }
