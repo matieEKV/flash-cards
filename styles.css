@@ -14,7 +14,6 @@ body {
 .welcomeCard {
    background-image: url(./images/flag\ Danmark101.jpg);
    background-color:rgba(255,255,255,0.9);
-   background-blend-mode: ;
    width: 600px;
   height: 425px;
 
@@ -72,3 +71,33 @@ body {
    text-align: center;
    justify-content: center;
 }
+.button-container3 {
+    position: fixed;
+    bottom: 145px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    gap: 200px;                 /* Space between buttons */
+    z-index: 1000;
+  }
+
+  .create-card-button {
+    width: 370px;
+    height: 60px;
+    background-color: white;
+    border: 5px solid #FE3F42;
+    color: #FE3F42;
+    font-family: 'Arial'; /* Font type */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer; /* A "hand" appears when the cursor is on a button*/
+    border-radius: 32px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .create-card-button:hover {
+    background-color: #FE3F42;
+    color: white;
+  }
