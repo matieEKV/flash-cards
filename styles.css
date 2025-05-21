@@ -21,8 +21,8 @@ body {
     gap: 200px;                 /* Space between buttons */
     z-index: 1000;
   }
-
-  .create-card-button {
+/* Use class="button" for all buttons, and different id for each button */
+  .button {
     width: 370px;
     height: 60px;
     background-color: white;
@@ -37,7 +37,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
   }
 
-  .create-card-button:hover {
+  .button:hover {
     background-color: #FE3F42;
     color: white;
   }
