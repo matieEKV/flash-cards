@@ -1,14 +1,16 @@
-<<<<<<< HEAD
 //JavaScript file for FlashCards
-=======
-//JavaScript file for Flash-Cards
 
-//hej hej this is Angela
+//  Start Button Funtionality-Takes you to first question-hygge
+document.getElementById("startButton") .onclick = function () {
+    window.location.href = "startLearningpage.html";
+}; // click to get answer-flip
 
-// i understand 
+let popup = document.getElementById('popup');
 
+function openPopup() {
+    popup.classList.add("open-popup");
+}
 
-<<<<<<< HEAD
->>>>>>> origin/TatianaBranch
-=======
->>>>>>> AngelasBranch
+function closePopup() {
+    popup.classList.remove("open-popup");
+}

@@ -4,12 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashCards: Welcome</title>
     <!-- StyleSheet-->
     <link rel="stylesheet" href="styles.css">
-    <!-- Fonts -->
 </head>
 <body>
+    <div class="top-welcome">
+        <p class="welcome">WELCOME</p>
+        <p class="bodyText">Learn more about Denmark</p>
+    </div>
+
+    <div class="welcomeCard">
+        
+    </div>
+    <a href="startLearningpage.html">
+      
+        </a>
+    
+    <div class="button-container3">
+      <button class="button" id="startButton">START</button>
+      <button class="button" id="downloadButton" onclick="openPopup( )">DOWNLOAD</button>
+      <a href="indexCreateNew.html">
+        <button class="button" id="createNewButton">CREATE NEW</button>
+      </a>
+      <button class="button" id="twoPlayersButton">TWO PLAYERS</button>
+    </div>
+
+     <div class="popupContainer" id="popup">
+        <div class="popup">
+            <h2>Would you like to download <i>Danmark 101</i> flashcards to your computer?</h2>
+            <img id="icon" src="images/jsonIcon.png">
+        </div>
+        <button class ="buttonPopup" id="cancelButton" onClick="closePopup()">CANCEL</button>
+        <button class ="buttonPopup" id="dwnldButton" >DOWNLOAD</button>
+    </div>
 
     <script src="flashCards.js"></script>
 </body>
+
 </html>
