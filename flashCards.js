@@ -1,14 +1,14 @@
-<<<<<<< HEAD
-//JavaScript file for FlashCards
-=======
-//JavaScript file for Flash-Cards
+//  Satrt Button Funtionality-Takes you to first question-hygge
 
-//hej hej this is Angela
-
-// i understand 
+document.getElementById("startButton") .onclick = function () {
+    window.location.href = "startLearningpage.html";
+};
 
 
-<<<<<<< HEAD
->>>>>>> origin/TatianaBranch
-=======
->>>>>>> AngelasBranch
+
+// click to get answer-flip
+
+
+ 
+
+

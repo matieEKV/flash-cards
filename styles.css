@@ -13,13 +13,13 @@ body {
 
 .welcomeCard {
    background-image: url(./images/flag\ Danmark101.jpg);
-   background-color:rgba(255,255,255,0.9);
    width: 600px;
-  height: 425px;
-
+   height: 425px;
    border-radius: 20px;
-   margin: auto;
-
+   position:absolute;
+   bottom: 15%;
+   opacity: 0.8;
+   
 }
 
 .welcome {
@@ -34,9 +34,9 @@ body {
    color: white;
    gap: 40px;
    margin-top: 55px;
-   
-
 }
+
+
 
 .startButton{
    margin: auto;
@@ -70,6 +70,7 @@ body {
    height: 217px;
    text-align: center;
    justify-content: center;
+   
 }
 .button-container3 {
     position: fixed;
@@ -78,7 +79,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;  /* Center horizontally */
-    gap: 200px;                 /* Space between buttons */
+    gap: 150px;                 /* Space between buttons */
     z-index: 1000;
   }
 
@@ -101,3 +102,93 @@ body {
     background-color: #FE3F42;
     color: white;
   }
+
+/* Card 1 */
+
+/* card 1 flip */
+
+.container {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   
+}
+
+
+.bodyquestion{
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* position the front and back side */
+.card {
+   position: relative;
+   width: 600px;
+   height: 425px;
+   text-align: center;
+   transition: transform 0.8s;
+   transform-style: preserve-3d;
+}
+
+.front,
+.back{
+   height: 500px;
+   width: 500px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 30px ;
+   font-family: Arial, Helvetica, sans-serif;
+   border-radius: 32px;
+   position: absolute;
+   color: white;
+   
+   
+}
+
+.front{
+   background: linear-gradient(#87A9AA);
+   z-index: 2;
+   backface-visibility: hidden;
+   position: absolute;
+   
+}
+
+.back{
+   background: linear-gradient(#87A9AA);
+   z-index: 1;
+   transform: rotateY(180deg);
+   
+}
+
+/* flip when you move the mouse over .card */
+.container:hover .card{ 
+   transform: rotateY(180deg);
+} 
+
+.container{
+   perspective: 1000px;
+   width: 500px;
+
+}
+
+
+.clickHere { 
+   font-family: Arial, Helvetica, sans-serif;
+   color: #FE3F42;
+   justify-content: center;
+   text-align: center;
+   position: absolute;
+   bottom: 100px;
+ 
+}
+
+#danishWord { 
+   justify-content: center;
+   text-align: center;
+}
+
