@@ -18,12 +18,21 @@
     </div>
     <a href="startLearningpage.html">
         <button class="button">Start</button>
-        </a>
+    </a>
     
     <div class="button-container3">
-      <button class="button" id="downloadButton">DOWNLOAD</button>
-      <button class="button" id="createNewButton">CREATE NEW</button>
-      <button class="button" id="twoPlayersButton">TWO PLAYERS</button>
+        <button class="button" id="downloadButton" onclick="openPopup( )">DOWNLOAD</button>
+        <button class="button" id="createNewButton">CREATE NEW</button>
+        <button class="button" id="twoPlayersButton">TWO PLAYERS</button>
+  </div>
+
+  <div class="popupContainer" id="popup">
+    <div class="popup">
+        <h2>Would you like to download <i>Danmark 101</i> flashcards to your computer?</h2>
+        <img id="icon" src="images/jsonIcon.png">
+    </div>
+    <button class ="buttonPopup" id="cancelButton" onClick="closePopup()">CANCEL</button>
+    <button class ="buttonPopup" id="dwnldButton" >DOWNLOAD</button>
   </div>
 
     <script src="flashCards.js"></script>

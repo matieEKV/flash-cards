@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 //JavaScript file for FlashCards
-=======
-//JavaScript file for Flash-Cards
 
-//hej hej this is Angela
+let popup = document.getElementById('popup');
 
-// i understand 
+function openPopup() {
+    popup.classList.add("open-popup");
+}
 
-
-<<<<<<< HEAD
->>>>>>> origin/TatianaBranch
-=======
->>>>>>> AngelasBranch
+function closePopup() {
+    popup.classList.remove("open-popup");
+}
