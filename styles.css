@@ -304,10 +304,11 @@ body {
    font-family: 'Arial'; /* Font type */
    font-size: 20px;
    border-radius: 32px;
-   height: 170px;
+   height: 300px;
    width: 200px;
    padding: 15px;
    margin: 60px;
+   margin-top: 150px;
 }
 
 /* style the score box */
@@ -332,4 +333,33 @@ body {
 .playerName {
    text-align: center;
    position: center;
+}
+
+/* style for answer input */
+
+.answerInput {
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 20px;
+   width: 400px;
+   height: 50px;
+   margin-top: 60px;
+   max-width: 200px;
+   text-align: center;
+}
+
+label {
+   display: flex;
+   flex-direction: column; 
+   text-align: center;
+   gap: 10px;
+}
+
+.submit {
+   background-color: white;
+   border: 3px solid #FE3F42;
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   border-radius: 32px;
+   margin-top: 10px;
 }

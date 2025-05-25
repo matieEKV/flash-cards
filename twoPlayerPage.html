@@ -10,6 +10,11 @@
 </head>
 <body>
 
+    <div class="top-welcome">
+        <p class="welcome">TWO PLAYER MODE</p>
+        <p class="bodyText">Danmark 101</p>
+    </div>
+
     <div class="button-container3">
         <button class="button" id="createPlayer" onclick="openPopup()">CREATE NEW PLAYER</button>
     </div>
@@ -33,8 +38,16 @@
         <div class="playerName" id="playerOneName">PLAYER ONE NAME</div>
         <div class="score" id="scoreOne">0</div>
         <div class="answer" id="answerOne">ANSWER</div>
+        <div class="answerInput">
+            <label>Your Answer Here: 
+                <input id="answerOneInput" type="text" required />
+            </label>
+            <button class="submit" id="submitOne">Submit</button>
+     </div>
     </div>
     
+    <!-- container for player answer -->
+     
     <!-- cards -->
     <div class="container">
         <div class="card">
@@ -49,9 +62,14 @@
         <div class="playerName" id="playerTwoName">PLAYER TWO NAME</div>
         <div class="score" id="scoreTwo">0</div>
         <div class="answer" id="answerTwo">ANSWER</div>
+        <div class="answerInput">
+            <label>Your Answer Here: 
+                <input id="answerTwoInput" type="text" required />
+            </label>
+            <button class="submit" id="submitTwo">Submit</button>
+     </div>
     </div>
-
-
+    
     <script src="flashCards.js"></script>
 </body>
 </html>
