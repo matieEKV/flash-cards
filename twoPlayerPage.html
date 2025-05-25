@@ -18,10 +18,10 @@
 
     <!-- <div class="gameContent"> -->
         <div class="gameButtonContainer">
-            <button class="button" id="createPlayer" onclick="openPopup()">CREATE NEW PLAYER</button>
+            <button class="button" id="createPlayer" onclick="openModal()">CREATE NEW PLAYER</button>
         </div>
         <!-- overlay makes dimming of the page possible -->
-        <div id="overlay"></div>
+        <div id="overlayTwo"></div>
         <!-- create modal container for user input -->
         <div class="modalContainer" id="newPlayersModal">
             <div id="modal">
@@ -32,7 +32,7 @@
                     <input class ="playerInput" id="playerTwo" name="playerTwo" type="text" style="text-transform:uppercase" required />
                 </label>
             </div>
-            <button class ="buttonPopup" id="cancelButton" onclick="closePopup()">CANCEL</button>
+            <button class ="buttonPopup" id="cancelButton" onclick="closeModal()">CANCEL</button>
             <button class ="buttonPopup" id="startGame" onclick="hideContainer()">START GAME</button>
         </div>
     <!-- container for player 1 name and score-->

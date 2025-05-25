@@ -14,9 +14,8 @@ let closeBtn = document.getElementById('cancelButton');
 
 // Open popup window for download cards and dim the background when button clicked
 function openPopup() {
-    if (popup) {    //added a condition to check if popup available, not available in modal
-        popup.classList.add("open-popup")
-    }
+    // if (popup) {    //added a condition to check if popup available, not available in modal
+    popup.classList.add("open-popup")
     document.getElementById("overlay").style.display = "block";
 };
 
@@ -24,23 +23,28 @@ function openPopup() {
 
 // Close popup window for download cards and remove dimmed background
 function closePopup() {
-    if (popup) {  //added a condition to check if popup available, not available in modal
-        popup.classList.remove("open-popup")
-    }
+    // popup  //added a condition to check if popup available, not available in modal
+    popup.classList.remove("open-popup")
     document.getElementById("overlay").style.display = "none";
 };
 
-// Open modal window for two player user input and dim background
-modalBtn.addEventListener('click', function() {
+// Open modal window for two player user input
+function openModal() {
     modalContainer.classList.add("open-popup")
-    document.getElementById("overlay").style.display = "block";
-});
+}
 
+// open modal window when button clicked
+modalBtn.addEventListener('click', openModal());
+
+// close modal window
 function closeModal() {
     modalContainer.classList.remove("open-popup")
-    document.getElementById("overlay").style.display = "none";
 }
-// Close modal window and remove dimmed background
+// remove dimmed and blurred background
+function unDim() {
+    document.getElementById("overlayTwo").style.display = "none";
+}
+// Close modal window
 closeBtn.addEventListener('click', closeModal);
 
 // save player names
@@ -60,10 +64,11 @@ function addNames() {
 function hideContainer() {
     gameButtonContainer.style.display = 'none';
 }
-//function that calls threefunction when start button clicked
+//function that calls foun functions when start button clicked
 function addNamesHideContainer() {
     addNames();
     hideContainer();
-    closeModal();
+    closeModal()
+    unDim();
 }
 startGame.addEventListener('click', addNamesHideContainer);

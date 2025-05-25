@@ -238,6 +238,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0.5); 
+  backdrop-filter: blur(3px);
   z-index: 14; 
   cursor: pointer;
   }
@@ -288,10 +289,23 @@ body {
   }
 
   /* styling for two player mode page */
-  
-  /* create players button and div */
+  /* dimming and bluring background to be set as default */
+  #overlayTwo {
+  position: fixed; 
+  display: block;
+  width: 100%; 
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  backdrop-filter: blur(3px);
+  z-index: 14; 
+  cursor: pointer;
+  }
 
-  
+  /* create players button and div */
 #modal {
    text-align:center;
    vertical-align:middle; 
@@ -372,8 +386,8 @@ body {
 
 /* container for the create new button, needs to disappear after creating players */
 .gameButtonContainer {
-   background-color: white;
-   z-index: 4;
+   background-color: transparent;
+   z-index: 15;
    width: 500px;
    height: 100px;
    top: 4%;
