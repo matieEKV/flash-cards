@@ -296,3 +296,35 @@ body {
    margin: 20px 0px;
 }
 
+/* styling name boxes for players */
+.playerName {
+   background-color: white;
+   border: 3px solid #FE3F42;
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 20px;
+   text-transform: capitalize;
+   border-radius: 32px;
+   height: 170px;
+   width: 200px;
+   padding: 20px;
+   margin: 60px;
+}
+
+/* style the score box */
+.score {
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 4rem;
+   margin-top: 20px;
+   padding-left: 75px;
+}
+
+/* style for answer box */
+.answer {
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 20px;
+   margin-top: 20px;
+   padding-left: 45px;
+}
