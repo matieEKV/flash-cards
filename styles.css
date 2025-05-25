@@ -58,7 +58,7 @@ body {
    margin-top: 0%;
 }
 
-.top-welcome {
+.top-welcome, .gameButtonContainer {
    width: 488px;
    height: 217px;
    text-align: center;
@@ -289,6 +289,9 @@ body {
 
   /* styling for two player mode page */
   
+  /* create players button and div */
+
+  
 #modal {
    text-align:center;
    vertical-align:middle; 
@@ -367,7 +370,12 @@ body {
    margin-top: 10px;
 }
 
-.gameContent {
-  justify-content: center;
-  display: f;
+/* container for the create new button, needs to disappear after creating players */
+.gameButtonContainer {
+   background-color: white;
+   z-index: 4;
+   width: 500px;
+   height: 100px;
+   top: 4%;
+   display: block;
 }
