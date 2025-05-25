@@ -6,8 +6,6 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center; /* adjust positioning on the main axis */
-    gap: 40px;
-    margin-top: 55px;
     flex-wrap: nowrap;
 }
 
@@ -19,7 +17,6 @@ body {
    position:absolute;
    bottom: 15%;
    opacity: 0.8;
-   
 }
 
 .welcome {
@@ -36,8 +33,6 @@ body {
    margin-top: 55px;
 }
 
-
-
 .startButton{
    margin: auto;
    font-size: larger;
@@ -50,14 +45,12 @@ body {
    border-radius: 10px;
    gap: 40px;
    margin-top: 55px;
-   
 }
 
 .welcome{
    color: red;
    border-bottom: solid red;
    padding-bottom: 30px;
-  
 }
 
 .bodyText{
@@ -70,7 +63,6 @@ body {
    height: 217px;
    text-align: center;
    justify-content: center;
-   
 }
 .button-container3 {
     position: fixed;
@@ -80,7 +72,7 @@ body {
     display: flex;
     justify-content: center;  /* Center horizontally */
     gap: 150px;                 /* Space between buttons */
-    z-index: 1000;
+    z-index: 10;
   }
 
   .button {
@@ -132,8 +124,12 @@ body {
    width: 600px;
    height: 425px;
    text-align: center;
-   transition: transform 0.8s;
+   transition: transform 1.3s;
    transform-style: preserve-3d;
+}
+
+.container:hover .card {
+  transform: rotateY(180deg);
 }
 
 .front,
@@ -164,9 +160,9 @@ body {
 }
 
 /* flip when you move the mouse over .card */
-.container:hover .card{ 
+/* .container:hover .card{ 
    transform: rotateY(180deg);
-} 
+}  */
 
 .container{
    perspective: 1000px;
@@ -186,10 +182,10 @@ body {
    justify-content: center;
    text-align: center;
 }
-
-  .popupContainer {
-    width: 450px;
-    height: 400px;
+/* style of popup container and modal container */
+  .popupContainer, .modalContainer {
+    width: 430px;
+    height: 420px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -198,21 +194,52 @@ body {
     transition: transform 0.4s, top 0.4s; 
     background-color: rgba(255,255,255,0.9);
     border-radius: 30px;
-    z-index: 9999;
+    animation-name: animatewindow;
+    animation-duration: .4s;
+    z-index: 15;  /* has to be the top most position */
+    padding: 10px;
+    padding-left: 20px;
 }
-  .popup {
+/* animate appearing window */
+@keyframes animatewindow {
+    from {
+        top: -300px;
+        opacity:0;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+/* style of popup window and modal window*/
+  .popup, #modal {
     width: 400px;
     height: 325px;
     border: solid #87A9AA 8px;
     border-radius: 32px;
     opacity: 100%;
-    margin-left: 15px;
+    margin: 10px;
     color: #FE3F42;
     font-family: 'Inria Serif'; /* Font type */
-    padding: 10px;
-
   }
 
+  /* dim the background when button clicked */
+  #overlay {
+  position: fixed; 
+  display: none; 
+  width: 100%; 
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  z-index: 14; 
+  cursor: pointer;
+  }
+
+   /* buttons in popup window for cards download and modal for two player game */
   .buttonPopup {
     width: 200px; 
     height: 50px;
@@ -227,14 +254,15 @@ body {
     border-radius: 32px;
     transition: background-color 0.3s, color 0.3s;
     margin-top: 15px;
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   .buttonPopup:hover {
     background-color: #FE3F42;
     color: white;
   }
-
+   
+  /* change colof of button when clicked */
   .buttonPopup:active {
     background-color: white;
     color: red;
@@ -243,15 +271,28 @@ body {
   #yesButton {
     margin-right: 10px;
   }
-
+   /* popup window opens */
   .open-popup {
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
 }
-
+   /* json icon styling */
   #icon {
     width: 55%;
     position: relative;
     left: 25%;
     bottom:10%;
   }
+
+  /* styling for two player mode page */
+  
+#modal {
+   text-align:center;
+   vertical-align:middle; 
+   display:table-cell;
+}
+
+.playerInput {
+   margin: 20px 0px;
+}
+
