@@ -19,19 +19,20 @@
     <div class="modalContainer" id="newPlayersModal">
         <div id="modal">
             <label for="playerOne">INPUT NAME FOR PLAYER 1: 
-                <input class ="playerInput" id="playerOne" name="playerOne" type="text" required />
+                <input class ="playerInput" id="playerOne" name="playerOne" type="text" style="text-transform:uppercase" required />
             </label>
             <label for="playerTwo">INPUT NAME FOR PLAYER 2: 
-                <input class ="playerInput" id="playerTwo" name="playerTwo" type="text" required />
+                <input class ="playerInput" id="playerTwo" name="playerTwo" type="text" style="text-transform:uppercase" required />
             </label>
         </div>
         <button class ="buttonPopup" id="cancelButton" onClick="closePopup()">CANCEL</button>
-        <button class ="buttonPopup" id="openTwoPlayerPage" >START GAME</button>
+        <button class ="buttonPopup" id="startGame" >START GAME</button>
     </div>
 <!-- container for player 1 name and score-->
-    <div class="playerName" id="playerOneName">PLAYER ONE NAME
-         <div class="score" id="scoreOne">0</div>
-         <div class="answer" id="answerOne">ANSWER</div>
+    <div class="playerBox">
+        <div class="playerName" id="playerOneName">PLAYER ONE NAME</div>
+        <div class="score" id="scoreOne">0</div>
+        <div class="answer" id="answerOne">ANSWER</div>
     </div>
     
     <!-- cards -->
@@ -44,9 +45,10 @@
             </div>
     </div>
 <!-- container for player 2 name and score -->
-    <div class="playerName" id="playerTwoName">PLAYER TWO NAME
+    <div class="playerBox">
+        <div class="playerName" id="playerTwoName">PLAYER TWO NAME</div>
         <div class="score" id="scoreTwo">0</div>
-        <div class="answer" id="answerTWO">ANSWER</div>
+        <div class="answer" id="answerTwo">ANSWER</div>
     </div>
 
 
