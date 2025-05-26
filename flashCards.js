@@ -1,6 +1,8 @@
 //JavaScript file for FlashCards
 
 //  Start Button Funtionality-Takes you to first question-hygge
+
+/*
 document.getElementById("startButton") .onclick = function () {
     window.location.href = "startLearningpage.html";
 }; // click to get answer-flip
@@ -15,7 +17,9 @@ function closePopup() {
     popup.classList.remove("open-popup");
 }
 
-let flashcards [
+*/
+
+let flashCardsArray = [
     {
         image: "images\hygge.png" ,
         question: "What is the defining characteristic of Danish culture?",
@@ -60,8 +64,32 @@ let flashcards [
     }
     ]
     
-    // save the new card from user
-
     console.log (flashcards)
 
+    // save the new card from user
 
+    document.getElementById("submitButton").addEventListener("click", () => {
+      const questionInput = document.getElementById("questionFromUser").value();
+      const answerInput = document.getElementById("answerFromUser").value();
+
+      if (!questionInput || !answerInput) {
+        alert("Please enter both a question and an answer");
+        return;
+      }
+
+      const newCard = {
+        image: "images/defaultImageForNewCard",
+        question: questionInput,
+        answer: answerInput
+      };
+
+      flashCardsArray.push(newCard);
+      // when we put all on local storage: localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+
+      console.log("New flashcard saved:", newCard);
+      alert("New flashcard saved successfully");
+
+      // Clear input fields after saving
+      document.getElementById("questionFromUser").value = "";
+      document.getElementById("answerFromUser").value = "";
+    });
