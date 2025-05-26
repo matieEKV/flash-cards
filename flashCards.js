@@ -18,45 +18,45 @@ function closePopup() {
 let flashcards [
     {
         image: "images\hygge.png"
-        Q: "What is the defining characteristic of Danish culture?",
-        A: "Hygge."
+        question: "What is the defining characteristic of Danish culture?",
+        answer: "Hygge."
     },
     {
         image: "images\Lego.png"
-        Q: "Which world-famous toy is made in Denmark?",
-        A: "Lego"
+        question: "Which world-famous toy is made in Denmark?",
+        answer: "Lego"
     },
     {   image: "images\BIG.png"
-        Q: "What is the name of the world famous contemporary architect from Denmark?",
-        A: "BIG (Bjarke Ingels)"
+        question: "What is the name of the world famous contemporary architect from Denmark?",
+        answer: "BIG (Bjarke Ingels)"
     }
     {   image: "images\dannebrog.png"
-        Q: "Danes are very proud of their flag. Do you know how they call it?",
-        A: "Dannebrog"
+        question: "Danes are very proud of their flag. Do you know how they call it?",
+        answer: "Dannebrog"
     }
     {   image: "images\MadsMikkelsen.png"
-        Q: "The famous actor from Denmark, who was nominated for Oscar is..." ,
-        A: "Mads Mikkelsen"
+        question: "The famous actor from Denmark, who was nominated for Oscar is..." ,
+        answer: "Mads Mikkelsen"
     }
     {   image: "images\Pandora.png"
-        Q: "The world-known jewelry brand originated in Copenhagen is..." ,
-        A: "Pandora"
+        question: "The world-known jewelry brand originated in Copenhagen is..." ,
+        answer: "Pandora"
     }
     {   image:  "images\B&O.png"
-        Q: "Danish high-end audio and multimedia company known for its quality audio products is called..." ,
-        A: "Bang&Olufsen (B&O)"
+        question: "Danish high-end audio and multimedia company known for its quality audio products is called..." ,
+        answer: "Bang&Olufsen (B&O)"
     }
     {   image: "images\ArneJakobsen.png"
-        Q: "The name of the Danish architect and furniture designer, known for simple and well-designed chairs is..." ,
-        A: "Arne Jakobsen"
+        question: "The name of the Danish architect and furniture designer, known for simple and well-designed chairs is..." ,
+        answer: "Arne Jakobsen"
     }
     {   image: "images\HCAndersen.png"
-        Q: "Name of the Danish writer of plays,  best remembered for his fairy tales is.." ,
-        A: "Hans Christian Andersen"
+        question: "Name of the Danish writer of plays, best remembered for his fairy tales is.." ,
+        answer: "Hans Christian Andersen"
     }
     {   image: "images\Oresund.png"
-        Q: "Name of the second longest bridge in Europe, connecting Denmark and Sweden is..." ,
-        A: "Öresund Bridge"
+        question: "Name of the second longest bridge in Europe, connecting Denmark and Sweden is..." ,
+        answer: "Öresund Bridge"
     }
     ]
     
