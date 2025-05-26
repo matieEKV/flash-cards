@@ -7,6 +7,8 @@ document.getElementById("startButton") .onclick = function () {
     window.location.href = "startLearningpage.html";
 }; // click to get answer-flip
 
+*/
+
 let popup = document.getElementById('popup');
 
 function openPopup() {
@@ -17,7 +19,7 @@ function closePopup() {
     popup.classList.remove("open-popup");
 }
 
-*/
+
 
 let flashCardsArray = [
     {
@@ -62,34 +64,41 @@ let flashCardsArray = [
         question: "Name of the second longest bridge in Europe, connecting Denmark and Sweden is..." ,
         answer: "Öresund Bridge"
     }
-    ]
+    ];
     
-    console.log (flashcards)
+    // Let's check if the array is there
+    console.log(flashCardsArray);
 
     // save the new card from user
 
     document.getElementById("submitButton").addEventListener("click", () => {
-      const questionInput = document.getElementById("questionFromUser").value();
-      const answerInput = document.getElementById("answerFromUser").value();
+      const questionInput = document.getElementById("questionFromUser").value.trim();
+      const answerInput = document.getElementById("answerFromUser").value.trim();
 
+      // Make sure that user did not submit empty fields
       if (!questionInput || !answerInput) {
         alert("Please enter both a question and an answer");
         return;
       }
 
+      // Saving user's input as a new const, along with provided default image
       const newCard = {
         image: "images/defaultImageForNewCard",
         question: questionInput,
         answer: answerInput
       };
 
+      //adding new card on the end of our flashCardArray
       flashCardsArray.push(newCard);
       // when we put all on local storage: localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
+      //test to see if the card is saved
       console.log("New flashcard saved:", newCard);
+      // alert for user > I should style this
       alert("New flashcard saved successfully");
 
       // Clear input fields after saving
       document.getElementById("questionFromUser").value = "";
       document.getElementById("answerFromUser").value = "";
+
     });
