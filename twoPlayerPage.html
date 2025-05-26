@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashCards: Welcome</title>
+    <!-- StyleSheet-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="welcomeContainer">
+        <a href="index.html">
+            <button class="buttonPopup" id="returnToMain">HOME PAGE</button>
+        </a>
+        <div class="top-welcome">
+            <p class="welcome">TWO PLAYER MODE</p>
+            <p class="bodyText"><i>Danmark 101</i></p>
+        </div>
+        <a href="twoPlayerPage.html">
+            <button class="buttonPopup" id="restartButton">RESTART</button>
+        </a>
+    </div>
+
+    <!-- <div class="gameContent"> -->
+        <div class="gameButtonContainer">
+            <button class="button" id="createPlayer" onclick="openModal()">CREATE NEW PLAYER</button>
+        </div>
+        <!-- overlay makes dimming of the page possible -->
+        <div id="overlayTwo"></div>
+        <!-- create modal container for user input -->
+        <div class="modalContainer" id="newPlayersModal">
+            <div id="modal">
+                <label for="playerOne">INPUT NAME FOR PLAYER 1: 
+                    <input class ="playerInput" id="playerOne" name="playerOne" type="text" style="text-transform:uppercase" required />
+                </label>
+                <label for="playerTwo">INPUT NAME FOR PLAYER 2: 
+                    <input class ="playerInput" id="playerTwo" name="playerTwo" type="text" style="text-transform:uppercase" required />
+                </label>
+            </div>
+            <button class ="buttonPopup" id="cancelButton" onclick="closeModal()">CANCEL</button>
+            <button class ="buttonPopup" id="startGame" onclick="hideContainer()">START GAME</button>
+        </div>
+    <!-- container for player 1 name and score-->
+        <div class="playerBox">
+            <div class="playerName" id="playerOneName">PLAYER ONE NAME</div>
+            <div class="score" id="scoreOne">0</div>
+            <div class="answer" id="answerOne">ANSWER</div>
+            <div class="answerInput">
+                <label class="answerLabel">Your Answer Here: 
+                    <input id="answerOneInput" type="text" required />
+                </label >
+                <button class="submit" id="submitOne">Submit</button>
+        </div>
+        </div>
+        
+        <!-- cards -->
+        <div class="container">
+            <div class="card">
+                <div class="front" id="danishWord">What is the Danish word for cosiness?
+                    <div class="clickHere"> <h5 id="clickAnswer">Click to get an answer</h5></div>
+                </div>
+                <div class="back">HYGGE!</div>
+                </div>
+        </div>
+    <!-- container for player 2 name and score -->
+        <div class="playerBox">
+            <div class="playerName" id="playerTwoName">PLAYER TWO NAME</div>
+            <div class="score" id="scoreTwo">0</div>
+            <div class="answer" id="answerTwo">ANSWER</div>
+            <div class="answerInput">
+                <label class="answerLabel">Your Answer Here: 
+                    <input id="answerTwoInput" type="text" required />
+                </label>
+                <button class="submit" id="submitTwo">Submit</button>
+            </div>
+        </div>
+    <!-- </div> -->
+    
+    <script src="flashCards.js"></script>
+</body>
+</html>
