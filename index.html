@@ -23,13 +23,17 @@
     
     <div class="button-container3">
       <button class="button" id="startButton">START</button>
-      <button class="button" id="downloadButton" onclick="openPopup( )">DOWNLOAD</button>
+      <button class="button" id="downloadButton" onclick="openPopup()">DOWNLOAD</button>
       <a href="indexCreateNew.html">
         <button class="button" id="createNewButton">CREATE NEW</button>
       </a>
-      <button class="button" id="twoPlayersButton">TWO PLAYERS</button>
+      <a href="twoPlayerPage.html">
+        <button class="button" id="twoPlayersButton">TWO PLAYER GAME</button>
+      </a>
     </div>
-
+    <!-- adding overlay element to dim the background when popup active -->
+    <div id="overlay" onclick="closePopup()"></div>
+    <!-- popup container for downloading cards -->
      <div class="popupContainer" id="popup">
         <div class="popup">
             <h2>Would you like to download <i>Danmark 101</i> flashcards to your computer?</h2>
