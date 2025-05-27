@@ -68,6 +68,9 @@ body {
 
 }
 .button-container3 {
+   /* position: absolute;
+   gap: 100px; 
+   bottom: 0%;*/
     position: fixed;
     bottom: 145px;
     left: 0;
@@ -135,10 +138,14 @@ body {
    transform-style: preserve-3d;
 }
 
-.container:hover .card {
-  transform: rotateY(180deg);
+.card:active {
+   transform: scale(0.97);
+   transition: transform .2s;
 }
 
+.card.flip {
+   transform: rotateY(180deg);
+}
 .front,
 .back{
    height: 500px;
@@ -171,10 +178,10 @@ body {
    transform: rotateY(180deg);
 }  */
 
-.container{
+/* .container{
    perspective: 1000px;
    width: 500px;
-}
+} */
 
 .clickHere { 
    font-family: Arial, Helvetica, sans-serif;
@@ -190,22 +197,22 @@ body {
    text-align: center;
 }
 /* style of popup container and modal container */
-  .popupContainer, .modalContainer {
-    width: 430px;
-    height: 420px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    visibility: hidden;
-    transition: transform 0.4s, top 0.4s; 
-    background-color: rgba(255,255,255,0.9);
-    border-radius: 30px;
-    animation-name: animatewindow;
-    animation-duration: .4s;
-    z-index: 15;  /* has to be the top most position */
-    padding: 10px;
-    padding-left: 20px;
+.popupContainer, .modalContainer {
+   width: 430px;
+   height: 420px;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(0.1);
+   visibility: hidden;
+   transition: transform 0.4s, top 0.4s; 
+   background-color: rgba(255,255,255,0.9);
+   border-radius: 30px;
+   animation-name: animatewindow;
+   animation-duration: .4s;
+   z-index: 15;  /* has to be the top most position */
+   padding: 10px;
+   padding-left: 20px;
 }
 /* animate appearing window */
 @keyframes animatewindow {
@@ -413,6 +420,7 @@ body {
    height: 100px;
    top: 4%;
    display: block;
+} 
 
 .footer {
    font-family: Arial, Helvetica, sans-serif;
@@ -421,4 +429,19 @@ body {
    height: 50px;
    text-align: center;
    opacity: 70%;
+}
+
+#frontPage {
+   position: absolute;
+   top: 10%;
+}
+  #btn-next1, #btn-next2, #btn-next3{
+   position: absolute;
+   right: -0%;
+   bottom: 10%;
+}
+#btn-back1, #btn-back2, #btn-back3{
+   position: absolute;
+   left: -0%;
+   bottom: 10%;
 }

@@ -5,14 +5,6 @@
 //     window.location.href = "startLearningpage.html";
 // }; // click to get answer-flip
 
-
-
-/*
-document.getElementById("startButton") .onclick = function () {
-    window.location.href = "startLearningpage.html";
-}; // click to get answer-flip
-
-*/
 // click to get answer-flip
 const card = document.querySelectorAll(".card");
 function flipCard() {
@@ -21,7 +13,6 @@ function flipCard() {
 card.forEach(card => card.addEventListener("click", flipCard));
 
 // open pop up 
-//open/close popup element when clicked
 let popup = document.getElementById('popup');
 let modalBtn = document.getElementById('createPlayer');
 let modalContainer = document.getElementById('newPlayersModal');
