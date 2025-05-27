@@ -1,19 +1,6 @@
 //JavaScript file for FlashCards
 
 //  Start Button Funtionality-Takes you to first question-hygge
-<<<<<<< HEAD
-
-
-
-// click to get answer-flip
-const card = document.querySelectorAll(".card");
-function flipCard() {
-  this.classList.toggle("flip");
-}
-card.forEach(card => card.addEventListener("click", flipCard));
-
-// open pop up 
-=======
 // document.getElementById("startButton") .onclick = function () {
 //     window.location.href = "startLearningpage.html";
 // }; // click to get answer-flip
@@ -24,9 +11,16 @@ card.forEach(card => card.addEventListener("click", flipCard));
 document.getElementById("startButton") .onclick = function () {
     window.location.href = "startLearningpage.html";
 }; // click to get answer-flip
->>>>>>> main
 
 */
+// click to get answer-flip
+const card = document.querySelectorAll(".card");
+function flipCard() {
+  this.classList.toggle("flip");
+}
+card.forEach(card => card.addEventListener("click", flipCard));
+
+// open pop up 
 //open/close popup element when clicked
 let popup = document.getElementById('popup');
 let modalBtn = document.getElementById('createPlayer');
@@ -54,12 +48,6 @@ function openModal() {
     modalContainer.classList.add("open-popup")
 }
 
-<<<<<<< HEAD
-function closePopup() {
-    popup.classList.remove("open-popup");
-}
-
-=======
 // open modal window when button clicked
 modalBtn.addEventListener('click', openModal());
 
@@ -181,4 +169,3 @@ let flashCardsArray = [
       document.getElementById("answerFromUser").value = "";
 
     });
->>>>>>> main
