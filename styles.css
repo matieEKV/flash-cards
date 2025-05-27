@@ -106,9 +106,9 @@ body {
     color: red;
   }
 
-#Danmark101Button {
+/* #Danmark101Button {
    
-}
+} */
 
 /* Card 1 */
 
@@ -435,11 +435,13 @@ body {
    position: absolute;
    top: 10%;
 }
+
   #btn-next1, #btn-next2, #btn-next3{
    position: absolute;
    right: -0%;
    bottom: 10%;
 }
+
 #btn-back1, #btn-back2, #btn-back3{
    position: absolute;
    left: -0%;
