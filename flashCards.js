@@ -148,7 +148,10 @@ let flashCardsArray = [
 
       //adding new card on the end of our flashCardArray
       flashCardsArray.push(newCard);
-      // when we put all on local storage: localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+
+      //saving the whole array with the new card on local storage
+      //The array needs to be stringified before saving in local storage.
+      localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
       //test to see if the card is saved
       console.log("New flashcard saved:", newCard);
@@ -158,6 +161,11 @@ let flashCardsArray = [
       // Clear input fields after saving
       document.getElementById("questionFromUser").value = "";
       document.getElementById("answerFromUser").value = "";
+
+      //test to see the array
+      console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
+
+
     });
 
     // ANDJELA LINES START
