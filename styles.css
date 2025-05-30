@@ -410,6 +410,8 @@ body {
    font-family: 'Arial'; /* Font type */
    border-radius: 32px;
    margin-top: 10px;
+   width: 100px;
+   height: 25px;
 }
 
 /* container for the create new button, needs to disappear after creating players */
@@ -447,9 +449,6 @@ body {
    left: -0%;
    bottom: 10%;
 }
-
-
-
 
 
 
