@@ -45,7 +45,10 @@ body {
     border-radius:32px;
     outline: none;
     transition: outline 0.0s ease;
-    margin: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .button:hover {
     outline: 5px solid #FE3F42; /* adds extra visual thickness without affecting layout */
@@ -59,8 +62,6 @@ body {
     height: 60px;
     font-size: 32px;
     margin-top: 50px;
-    
-
 }
 
 /* card */
@@ -78,7 +79,19 @@ body {
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
     padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
+}
+
+.placeForText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* input element */
@@ -87,9 +100,6 @@ input {
     width: 80%;
     padding: 5px;
     margin:5px;
-    display: flex;
-    justify-content: center; /* horizontal */
-    align-items: center;     /* vertical */
     color: #FE3F42; /* color of text that user inputs */
     font-family: 'Arial', "Helvetica", "sans-serif"; /* Font type */
     text-align: center;
