@@ -13,7 +13,7 @@ function flipCard() {
 card.forEach(card => card.addEventListener("click", flipCard));
 
 // open pop up 
-let popup = document.getElementById('popup');
+let popup = document.getElementById('popup'); //
 let modalBtn = document.getElementById('createPlayer');
 let modalContainer = document.getElementById('newPlayersModal');
 let closeBtn = document.getElementById('cancelButton');
@@ -40,7 +40,9 @@ function openModal() {
 }
 
 // open modal window when button clicked
-modalBtn.addEventListener('click', openModal());
+if (modalBtn) {
+    modalBtn.addEventListener('click', openModal);
+}
 
 // close modal window
 function closeModal() {
@@ -54,12 +56,12 @@ function unDim() {
 closeBtn.addEventListener('click', closeModal);
 
 // save player names
-let playerOneNameInput = document.getElementById('playerOne');
-let playerTwoNameInput = document.getElementById('playerTwo');
-let startGame = document.getElementById('startGame');
-let playerOneName = document.getElementById('playerOneName');
-let playerTwoName = document.getElementById('playerTwoName');
-let gameButtonContainer = document.querySelector('.gameButtonContainer');
+let playerOneNameInput = document.getElementById('playerOne'); //name for player one
+let playerTwoNameInput = document.getElementById('playerTwo'); //name for player two
+let startGame = document.getElementById('startGame'); //button on modal to start the game once player's name are inputed
+let playerOneName = document.getElementById('playerOneName'); //element that displayes player one name
+let playerTwoName = document.getElementById('playerTwoName'); //element that displayes player two name
+let gameButtonContainer = document.querySelector('.gameButtonContainer'); //element that holds 'Add new players' button
 
 //function that adds user input names to the name element
 function addNames() {
@@ -77,13 +79,16 @@ function addNamesHideContainer() {
     closeModal()
     unDim();
 }
-startGame.addEventListener('click', addNamesHideContainer);
+
+if (startGame) {
+    startGame.addEventListener('click', addNamesHideContainer);
+}
 
 let flashCardsArray = [
     {
         image: "images\hygge.png" ,
         question: "What is the defining characteristic of Danish culture?",
-        answer: "Hygge."
+        answer: "Hygge"
     },
     {
         image: "images\Lego.png" ,
@@ -129,36 +134,36 @@ let flashCardsArray = [
 
     // save the new card from user
 
-    document.getElementById("submitButton").addEventListener("click", () => {
-      const questionInput = document.getElementById("questionFromUser").value.trim();
-      const answerInput = document.getElementById("answerFromUser").value.trim();
+    // document.getElementById("submitButton").addEventListener("click", () => {
+    //   const questionInput = document.getElementById("questionFromUser").value.trim();
+    //   const answerInput = document.getElementById("answerFromUser").value.trim();
 
       // Make sure that user did not submit empty fields
-      if (!questionInput || !answerInput) {
-        alert("Please enter both a question and an answer");
-        return;
-      }
+    //   if (!questionInput || !answerInput) {
+    //     alert("Please enter both a question and an answer");
+    //     return;
+    //   }
 
-      // Saving user's input as a new const, along with provided default image
-      const newCard = {
-        image: "images/defaultImageForNewCard",
-        question: questionInput,
-        answer: answerInput
-      };
+    //   // Saving user's input as a new const, along with provided default image
+    //   const newCard = {
+    //     image: "images/defaultImageForNewCard",
+    //     question: questionInput,
+    //     answer: answerInput
+    //   };
 
-      //adding new card on the end of our flashCardArray
-      flashCardsArray.push(newCard);
-      // when we put all on local storage: localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+    //   //adding new card on the end of our flashCardArray
+    //   flashCardsArray.push(newCard);
+    //   // when we put all on local storage: localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
-      //test to see if the card is saved
-      console.log("New flashcard saved:", newCard);
-      // alert for user > I should style this
-      alert("New flashcard saved successfully");
+    //   //test to see if the card is saved
+    //   console.log("New flashcard saved:", newCard);
+    //   // alert for user > I should style this
+    //   alert("New flashcard saved successfully");
 
-      // Clear input fields after saving
-      document.getElementById("questionFromUser").value = "";
-      document.getElementById("answerFromUser").value = "";
-    });
+    //   // Clear input fields after saving
+    //   document.getElementById("questionFromUser").value = "";
+    //   document.getElementById("answerFromUser").value = "";
+    // });
 
     // ANDJELA LINES START
 
@@ -170,8 +175,6 @@ let flashCardsArray = [
 
 
 
-dfds
-dfds
 
 
 
@@ -371,6 +374,42 @@ dfds
 //  MATEA LINES START
 
 //downloading flashcards as json
+
+
+
+// answer validation
+
+let scoreOne = document.getElementById('scoreOne'); //variable for score player one
+let scoreTwo = document.getElementById('scoreTwo'); //variable for score player two
+let answerCard = document.querySelector('.back'); //variable for answer on the flashcard
+let answerOne = document.getElementById('answerOneInput'); //variable for player one answer
+let answerTwo = document.getElementById('answerTwoInput'); //variable for player two answer
+
+let submitOneBtn = document.getElementById('submitOne'); //variable for player one submit answer
+let submitTwoBtn = document.getElementById('submitTwo'); //variable for player two submit answer
+
+//function to validate answer and add points for correct one
+function validateAnswer() {
+    if (answerOne.value === answerCard.value) {
+        console.log('CORRECT!');
+    }
+    else {
+        console.log('INCORRECT');
+        console.log(answerCard.innerText)
+    }
+}
+//when submit button is clicked then 
+submitOneBtn.addEventListener('click', validateAnswer);
+//input answer by clicking the enter button
+answerOne.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter') {
+        submitOneBtn.click();
+        console.log(answerOne.value);
+    }
+})
+
+
+
 
 
 

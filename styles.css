@@ -301,6 +301,16 @@ body {
 
   /* TWO PLAYER MODE PAGE STYLING */
 
+  /* styling the top banner on the page */
+  .topWelcome, .gameButtonContainer {
+   width: 488px;
+   height: 217px;
+   text-align: center;
+   justify-content: center;
+   position: absolute;
+   left: 31%;
+}
+
   /* dimming and bluring background to be set as default */
   #overlayTwo {
   position: fixed; 
@@ -322,15 +332,14 @@ body {
    position: absolute;
    margin-top: 25px;
    margin-left: 75px;
+   z-index: 15;
   }
 
   /* style for restart game button*/
   #restartButton {
    position: absolute;
    right: 9%;
-   margin-top: 25px;
-
-   
+   margin-top: 25px;   
   }
 
   /* create players button and div */
@@ -413,6 +422,16 @@ body {
    width: 100px;
    height: 25px;
 }
+
+.submit:hover {
+    background-color: #FE3F42;
+    color: white;
+  }
+
+.submit:active {
+    background-color: white;
+    color: red;
+  }
 
 /* container for the create new button, needs to disappear after creating players */
 .gameButtonContainer {
