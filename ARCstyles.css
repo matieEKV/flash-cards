@@ -45,6 +45,7 @@ body {
     border-radius:32px;
     outline: none;
     transition: outline 0.0s ease;
+    margin: 20px;
 }
 .button:hover {
     outline: 5px solid #FE3F42; /* adds extra visual thickness without affecting layout */
