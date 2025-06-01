@@ -1,0 +1,117 @@
+/* Angela CSS file for FlashCards */
+
+/* Background */
+body {
+   margin: 0;
+   padding: 0;
+    background: url(./images/denmarkBackground.png) no-repeat center center/cover;
+   background-color: rgba(255,255,255,0.9);
+   background-blend-mode: lighten;
+   height: 100dvh;
+   min-height: 100vh;
+   justify-content: center; /*  vertical alignment*/
+    align-items: center;    /*  horizontal alignment*/
+   flex-wrap: nowrap; 
+   display: flex;
+   flex-direction: column;
+}
+
+/* Header: "Made by Matea, Angela, Maria and Tatiana with ReDi" */
+.header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   font-family: "Arial", "Helvetica", "sans-serif";
+   color: #FE3F42;
+   width: 100%;
+   height: 50px;
+   text-align: center;
+   opacity: 70%;
+    
+}
+
+/* button class="button" */
+.button {
+    width: 280px;
+    height: 60px;
+    background-color: white;
+    border: 5px solid #FE3F42;
+    color: #FE3F42;
+    font-family: 'Arial', "Helvetica", "sans-serif"; /* Font type */
+    font-size: 24px;
+    text-align: center;
+    font-weight:normal;
+    cursor: pointer; /* A "hand" appears when the cursor is on a button*/
+    border-radius:32px;
+    outline: none;
+    transition: outline 0.0s ease;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.button:hover {
+    outline: 5px solid #FE3F42; /* adds extra visual thickness without affecting layout */
+    outline-offset: -3px;     /* moves the bolded border inside */
+    font-weight:bold;   /* changes also the thicknes of letters */
+}
+
+/* Danmark 101 button */
+#Danmark101Button {
+    width: 370px;
+    height: 60px;
+    font-size: 32px;
+    margin-top: 50px;
+}
+
+/* card */
+.cardFront {
+    background-color: #87A9AA;
+    width: 600px;
+    height: 425px;
+    border-radius:32px;
+}
+
+/* image inside the card */
+.imageInsideTheCard {
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.placeForText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* input element */
+input {
+    display: block;
+    width: 80%;
+    padding: 5px;
+    margin:5px;
+    color: #FE3F42; /* color of text that user inputs */
+    font-family: 'Arial', "Helvetica", "sans-serif"; /* Font type */
+    text-align: center;
+    background-color: white;
+    opacity: 70%;
+    border-radius: 10px;
+    border-color: #87A9AA;
+    outline-color: #87A9AA;
+      
+}
+/* text inside input element */
+input::placeholder {
+    color: blue;
+    text-decoration: underline;
+}
