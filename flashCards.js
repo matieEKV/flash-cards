@@ -23,7 +23,6 @@ let closeBtn = document.getElementById('cancelButton');
 
 // Open popup window for download cards and dim the background when button clicked
 function openPopup() {
-    // if (popup) {    //added a condition to check if popup available, not available in modal
     popup.classList.add("open-popup")
     document.getElementById("overlay").style.display = "block";
 };
@@ -42,9 +41,8 @@ function openModal() {
 }
 
 // open modal window when button clicked
-if (modalBtn) {
-    modalBtn.addEventListener('click', openModal);
-}
+modalBtn?.addEventListener('click', openModal); //? - if not null
+
 
 // close modal window
 function closeModal() {
@@ -82,9 +80,7 @@ function addNamesHideContainer() {
     unDim();
 }
 
-if (startGame) {
-    startGame.addEventListener('click', addNamesHideContainer);
-}
+startGame?.addEventListener('click', addNamesHideContainer); //? - if not null
 
 //array of cards
 
@@ -163,11 +159,12 @@ let flashCardsArray = [
       //saving the whole array with the new card on local storage
       //The array needs to be stringified before saving in local storage.
       localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+      
 
       //test to see if the card is saved
     //   console.log("New flashcard saved:", newCard);
       // alert for user > I should style this
-      alert("New flashcard saved successfully");
+    //   alert("New flashcard saved successfully");
 
       // Clear input fields after saving
     //   document.getElementById("questionFromUser").value = "";
@@ -428,7 +425,7 @@ function flipValidate () {
 }
 
 //when show answer is clicked then
-showAnswer.addEventListener('click', flipValidate);
+showAnswer?.addEventListener('click', flipValidate); //? - if not null
 
 let storeAnswerOne = "";
 let storeAnswerTwo = "";
@@ -497,16 +494,29 @@ submitAnswers.forEach(submitAnswer => {
 // });
 
 
+/*To be done: 
+- maybe remove the check answer button after being clicked
+- add next card button
+- when the end of cards is reached - show who is the winner with some banner
+- deal with case of answer input - and card answers */
 
 
 
 
+//downloading flashcards as json
 
 
-
-
-
-
+function downloadJSON() {
+    let retrieveFlashCards =  localStorage.getItem("flashCardsArray");
+    console.log("These are the flashcards: " + retrieveFlashCards);
+    console.log("in the downloadJSON function now");
+    const link = document.createElement('a');
+    const fileJSON = new Blob([retrieveFlashCards], { type:'application/json'});
+    link.href = URL.createObjectURL(fileJSON);
+    link.download = "Danmark101.json";
+    link.click();
+    URL.revokeObjectURL(link.href);
+};
 
 
 
