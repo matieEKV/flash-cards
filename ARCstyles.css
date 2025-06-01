@@ -26,8 +26,7 @@ body {
    width: 100%;
    height: 50px;
    text-align: center;
-   opacity: 70%;
-    
+   opacity: 70%;  
 }
 
 /* button class="button" */
@@ -43,7 +42,6 @@ body {
     font-weight:normal;
     cursor: pointer; /* A "hand" appears when the cursor is on a button*/
     border-radius:32px;
-    outline: none;
     transition: outline 0.0s ease;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -61,7 +59,8 @@ body {
     width: 370px;
     height: 60px;
     font-size: 32px;
-    margin-top: 50px;
+    margin-top: 200px;
+    margin-bottom: 50px;
 }
 
 /* card */
