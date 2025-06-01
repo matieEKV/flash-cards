@@ -261,7 +261,7 @@ body {
     width: 200px; 
     height: 50px;
     background-color: white;
-    border: 3px solid #FE3F42;
+    border: 2px solid #FE3F42;
     color: #FE3F42;
     font-family: 'Arial'; /* Font type */
     font-size: 20px;
@@ -340,7 +340,7 @@ body {
   /* style for restart game button*/
   #restartButton {
    position: absolute;
-   right: 9%;
+   right: 5%;
    margin-top: 25px;   
   }
 
@@ -358,7 +358,7 @@ body {
 /* styling name boxes for players */
 .playerBox {
    background-color: white;
-   border: 3px solid #FE3F42;
+   border: solid 2px #FE3F42;
    color: #FE3F42;
    font-family: 'Arial'; /* Font type */
    font-size: 20px;
@@ -416,7 +416,7 @@ body {
 
 .submit {
    background-color: white;
-   border: 3px solid #FE3F42;
+   border: 2px solid #FE3F42;
    color: #FE3F42;
    font-family: 'Arial'; /* Font type */
    border-radius: 32px;
@@ -686,7 +686,11 @@ body {
 
   /* MATEA LINES START */
 
-
+#showAnswer {
+   position: absolute;
+   bottom: 5%;
+   border: solid 2px #FE3F42;
+}
 
 
 

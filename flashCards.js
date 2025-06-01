@@ -6,11 +6,13 @@
 // }; // click to get answer-flip
 
 // click to get answer-flip
-const card = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".card");
 function flipCard() {
-  this.classList.toggle("flip");
+    cards.forEach(card => {
+  card.classList.toggle("flip");
+});
 }
-card.forEach(card => card.addEventListener("click", flipCard));
+cards.forEach(card => card.addEventListener("click", flipCard));
 
 // open pop up 
 let popup = document.getElementById('popup'); //
@@ -383,31 +385,114 @@ let scoreOne = document.getElementById('scoreOne'); //variable for score player 
 let scoreTwo = document.getElementById('scoreTwo'); //variable for score player two
 let answerCard = document.querySelector('.back'); //variable for answer on the flashcard
 let answerOne = document.getElementById('answerOneInput'); //variable for player one answer
+let answerOneDisplay = document.getElementById('answerOne'); //variable for displaying the player answer
+let answerTwoDisplay = document.getElementById('answerTwo'); //variable for displaying the player answer
 let answerTwo = document.getElementById('answerTwoInput'); //variable for player two answer
-
+let answers = document.querySelectorAll('.answers'); //variable for all players answers 
+let submitAnswers = document.querySelectorAll('.submit'); //variable for all submit buttons
 let submitOneBtn = document.getElementById('submitOne'); //variable for player one submit answer
 let submitTwoBtn = document.getElementById('submitTwo'); //variable for player two submit answer
+let showAnswer = document.getElementById('showAnswer'); //variable for show answer button
 
-//function to validate answer and add points for correct one
+//counters for scores
+let countOne = 0;
+let countTwo = 0;
+
+//function which checks if the player's answer is correct
 function validateAnswer() {
-    if (answerOne.value === answerCard.value) {
-        console.log('CORRECT!');
+    answerOneDisplay.innerText = storeAnswerOne;
+    answerTwoDisplay.innerText = storeAnswerTwo;
+
+     if (storeAnswerOne === 'Hygge') {
+        console.log(answerOne.value);
+        countOne++;
+        scoreOne.innerText = countOne;
+        changeColorCorrectAnswer(answerOneDisplay);
     }
-    else {
-        console.log('INCORRECT');
-        console.log(answerCard.innerText)
+    else if (storeAnswerTwo === 'Hygge') {
+        countTwo++;
+        scoreTwo.innerText = countTwo;
+        changeColorCorrectAnswer(answerTwoDisplay);
     }
 }
-//when submit button is clicked then 
-submitOneBtn.addEventListener('click', validateAnswer);
-//input answer by clicking the enter button
-answerOne.addEventListener('keypress', (e) => {
-    if(e.key === 'Enter') {
-        submitOneBtn.click();
-        console.log(answerOne.value);
-    }
-})
+//function to change the color of the correct answer to green after showing the answer
+function changeColorCorrectAnswer(element) {
+    element.style.color = "green";
+}
+//function that calls two functions - flip the card to show the correct answer and validates the answer of the players
+function flipValidate () {
+    flipCard();
+    validateAnswer();
+}
 
+//when show answer is clicked then
+showAnswer.addEventListener('click', flipValidate);
+
+let storeAnswerOne = "";
+let storeAnswerTwo = "";
+
+//when submit button is clicked then 
+submitAnswers.forEach(submitAnswer => {
+    submitAnswer.addEventListener('click', (event) => {
+        const clickedButton = event.target;
+        if (clickedButton.id === 'submitOne') {
+            console.log("answer one before storing: " + answerOne.value)
+            storeAnswerOne = answerOne.value;
+            console.log("answer one after storing: " + answerOne.value)
+            answerOne.value = "";
+        }
+        else if (clickedButton.id === 'submitTwo') {
+            storeAnswerTwo = answerTwo.value;
+            answerTwo.value = "";
+        } 
+        
+//     });
+// });
+    //     answers.forEach(answer => {
+    //         const clickedButton = event.target;
+    //         if (clickedButton.id === 'submitOne') {
+    //             storeAnswerOne = answerOne.value;
+    //             console.log("this is after storing the input" + storeAnswerOne);
+    //             answerOne.value = "";
+    //             // console.log("this is after clearing the input" + storeAnswerOne);
+    //         }
+    //         else if (clickedButton.id === 'submitTwo') {
+    //             storeAnswerTwo = answerTwo.value;
+    //             //answerTwo.value = "";
+    //         } 
+    //         //answer.value = "";
+    // });
+    
+    
+})
+});
+
+// input answer by clicking the enter button
+// answers.forEach(answer => {
+//     answer.addEventListener('keypress', (e) => {
+//         if(e.key === 'Enter') {
+//             submitAnswers.forEach(submitAnswer => {
+//                 submitAnswer.click();
+//             })
+//         }
+// })
+// })
+
+
+
+// const clickedButton = event.target;
+//         if (clickedButton.id === 'submitOne') {
+//             storeAnswerOne = answerOne.value;
+//             console.log("this is after storing the input" + storeAnswerOne);
+//              answerOne.value = "";
+//              console.log("this is after clearing the input" + storeAnswerOne);
+//         }
+//         else if (clickedButton.id === 'submitTwo') {
+//             storeAnswerTwo = answerTwo.value;
+//             answerTwo.value = "";
+//         } 
+//     });
+// });
 
 
 
