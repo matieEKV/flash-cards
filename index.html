@@ -8,19 +8,25 @@
     <!-- StyleSheet-->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="top-welcome">
-        <p class="welcome">WELCOME</p>
-        <p class="bodyText">Learn more about Denmark</p>
-    </div>
 
-    <div class="welcomeCard">
-        
-    </div>
-    <a href="startLearningpage.html">
-      
-        </a>
-    
+<!-- Made by Matea, Angela, Maria and Tatiana with ReDi -->
+<header>
+    <p class="header">Made by Matea, Angela, Maria and Tatiana with <a href="https://www.redi-school.org/redi-school-aarhus" target="_blank" style="color: #FE3F42">ReDi</a>
+    </p>
+</header>
+<body>
+
+  <!-- WELCOME at the top-->  
+  <div class="top-welcome">
+    <p class="welcome">WELCOME</p>
+    <p class="bodyText">Learn more about Denmark</p>
+  </div>
+
+  <!--Red card on main page -->
+  <div class="welcomeCard">
+  </div>
+  
+    <!-- All buttons at the bottom of page --> 
     <div class="button-container3">
       <button class="button" id="startButton">START</button>
       <button class="button" id="downloadButton" onclick="openPopup()">DOWNLOAD</button>
@@ -31,8 +37,10 @@
         <button class="button" id="twoPlayersButton">TWO PLAYER GAME</button>
       </a>
     </div>
+
     <!-- adding overlay element to dim the background when popup active -->
     <div id="overlay" onclick="closePopup()"></div>
+
     <!-- popup container for downloading cards -->
      <div class="popupContainer" id="popup">
         <div class="popup">
@@ -42,9 +50,10 @@
         <button class ="buttonPopup" id="cancelButton" onClick="closePopup()">CANCEL</button>
         <a href="" download="Danmark101">
           <button class ="buttonPopup" id="dwnldButton" >DOWNLOAD</button>
-       </a>
-    </div>
-
+        </a>
+     </div>
+ 
+    <!-- Link to JavaScript file -->
     <script src="flashCards.js"></script>
 </body>
 
