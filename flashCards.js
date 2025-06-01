@@ -145,33 +145,33 @@ let flashCardsArray = [
       // Make sure that user did not submit empty fields
 
     // ANDJELA LINES START
-      if (!questionInput || !answerInput) {
-        alert("Please enter both a question and an answer");
-        return;
-      }
+    //   if (!questionInput || !answerInput) {
+    //     alert("Please enter both a question and an answer");
+    //     return;
+    //   }
 
       // Saving user's input as a new const, along with provided default image
-      const newCard = {
-        image: "images/defaultImageForNewCard.png",
-        question: questionInput,
-        answer: answerInput
-      };
+    //   const newCard = {
+    //     image: "images/defaultImageForNewCard.png",
+    //     question: questionInput,
+    //     answer: answerInput
+    //   };
 
       //adding new card on the end of our flashCardArray
-      flashCardsArray.push(newCard);
+    //   flashCardsArray.push(newCard);
 
       //saving the whole array with the new card on local storage
       //The array needs to be stringified before saving in local storage.
       localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
       //test to see if the card is saved
-      console.log("New flashcard saved:", newCard);
+    //   console.log("New flashcard saved:", newCard);
       // alert for user > I should style this
       alert("New flashcard saved successfully");
 
       // Clear input fields after saving
-      document.getElementById("questionFromUser").value = "";
-      document.getElementById("answerFromUser").value = "";
+    //   document.getElementById("questionFromUser").value = "";
+    //   document.getElementById("answerFromUser").value = "";
 
       //test to see the array
       console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
