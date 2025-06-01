@@ -418,14 +418,26 @@ function validateAnswer() {
 function changeColorCorrectAnswer(element) {
     element.style.color = "green";
 }
+
+function changeColorBack() {
+    answerOneDisplay.style.color = "red";
+    answerTwoDisplay.style.color = "red";
+}
+
+function clearAnswers() {
+    storeAnswerOne = "";
+    storeAnswerTwo = "";
+
+}
 //function that calls two functions - flip the card to show the correct answer and validates the answer of the players
-function flipValidate () {
+function flipValidateClear () {
     flipCard();
     validateAnswer();
+    clearAnswers();
 }
 
 //when show answer is clicked then
-showAnswer?.addEventListener('click', flipValidate); //? - if not null
+showAnswer?.addEventListener('click', flipValidateClear); //? - if not null
 
 let storeAnswerOne = "";
 let storeAnswerTwo = "";
@@ -443,26 +455,7 @@ submitAnswers.forEach(submitAnswer => {
         else if (clickedButton.id === 'submitTwo') {
             storeAnswerTwo = answerTwo.value;
             answerTwo.value = "";
-        } 
-        
-//     });
-// });
-    //     answers.forEach(answer => {
-    //         const clickedButton = event.target;
-    //         if (clickedButton.id === 'submitOne') {
-    //             storeAnswerOne = answerOne.value;
-    //             console.log("this is after storing the input" + storeAnswerOne);
-    //             answerOne.value = "";
-    //             // console.log("this is after clearing the input" + storeAnswerOne);
-    //         }
-    //         else if (clickedButton.id === 'submitTwo') {
-    //             storeAnswerTwo = answerTwo.value;
-    //             //answerTwo.value = "";
-    //         } 
-    //         //answer.value = "";
-    // });
-    
-    
+        }     
 })
 });
 
@@ -476,22 +469,6 @@ submitAnswers.forEach(submitAnswer => {
 //         }
 // })
 // })
-
-
-
-// const clickedButton = event.target;
-//         if (clickedButton.id === 'submitOne') {
-//             storeAnswerOne = answerOne.value;
-//             console.log("this is after storing the input" + storeAnswerOne);
-//              answerOne.value = "";
-//              console.log("this is after clearing the input" + storeAnswerOne);
-//         }
-//         else if (clickedButton.id === 'submitTwo') {
-//             storeAnswerTwo = answerTwo.value;
-//             answerTwo.value = "";
-//         } 
-//     });
-// });
 
 
 /*To be done: 
