@@ -2,26 +2,29 @@
 <html>
     <head>
         <meta charsert="utf-8">
-        <title>next page</title>
+        <title>question page</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     
     <body class="bodyquestion">
-     
-        <button class="button" id="frontPage">Danmark 101</button>
+        <button class="button" id="frontPage">Homepage</button>
 
-        <div class="container">
-            <div class="card">
-                <div class="front" id="danishWord">What is the Danish word for cosiness?
-                   <div class="clickHere"> <h5 id="clickAnswer">Click to get an answer</h5></div>
+        <div class="cardContainer" id="cardContainer">
+            <div class="card" >
+                <div class="front" id="cardQuestion">
+                   
                 </div>
              
-                <div class="back">HYGGE!</div>
+                <div class="back" id="cardAnswer"></div>
             </div>
-           
+          
         </div>
-        
-        <button class="button" id="btn-back1">Back</button>
+
+         <button class="button" id="btn-back1" >Back</button> 
         <button class="button" id="btn-next1">Next</button>
+
+        <footer class="footer">ReDi School Aarhus / 2025 FlaschCards Project / JavaScript Intro Class</footer>
+
+
 <script src="flashCards.js"></script>
 </html>
