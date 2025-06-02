@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlashCards: Welcome</title>
     <!-- StyleSheet-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styleTwoPlayerPage.css">
 </head>
 <body>
     <div class="welcomeContainer">
@@ -56,16 +56,15 @@
         
         <!-- cards -->
         <div class="container">
-            <div class="card">
-                <div class="front" id="danishWord">What is the Danish word for cosiness?
-                    <div class="clickHere"> <h5 id="clickAnswer">Click to get an answer</h5></div>
+            <div class="flashCard">
+                <div class="frontCard" id="front">
+                <!-- <button class="button" id="showAnswer" >SHOW ANSWER</button> -->
                 </div>
-                <div class="back">HYGGE!</div>
+                <div class="backCard"></div>
+                 <button class="button" id="nextCard">NEXT CARD</button>
                 </div>
         </div>
-
-        <button class="button" id="showAnswer" >SHOW ANSWER</button>
-        </div>
+        
         
     <!-- container for player 2 name and score -->
         <div class="playerBox">

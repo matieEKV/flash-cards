@@ -58,7 +58,7 @@ function unDim() {
     document.getElementById("overlayTwo").style.display = "none";
 }
 // Close modal window
-closeBtn.addEventListener('click', closeModal);
+closeBtn?.addEventListener('click', closeModal);
 
 // save player names
 let playerOneNameInput = document.getElementById('playerOne'); //name for player one
@@ -77,34 +77,84 @@ function addNames() {
 function hideContainer() {
     gameButtonContainer.style.display = 'none';
 }
-//function that calls foun functions when start button clicked
+//function that calls four functions when start button clicked
 function addNamesHideContainer() {
     addNames();
+    loadNextCard();
     hideContainer();
-    closeModal()
+    closeModal();
     unDim();
 }
 
-if (startGame) {
-    startGame.addEventListener('click', addNamesHideContainer);
-}
+    startGame?.addEventListener('click', addNamesHideContainer);
 
+
+//array of cards
+
+var flashCardsArray = [
+    {
+        image: "images/hygge.png" ,
+        question: "What is the defining characteristic of Danish culture?",
+        answer: "Hygge"
+    },
+    {
+        image: "images/Lego.png" ,
+        question: "Which world-famous toy is made in Denmark?",
+        answer: "Lego"
+    },
+    {   image: "images/BIG.png" ,
+        question: "What is the name of the world famous contemporary architect from Denmark?",
+        answer: "BIG (Bjarke Ingels)"
+    },
+    {   image: "images/dannebrog.png" ,
+        question: "Danes are very proud of their flag. Do you know how they call it?",
+        answer: "Dannebrog"
+    },
+    {   image: "images/MadsMikkelsen.png" ,
+        question: "The famous actor from Denmark, who was nominated for Oscar is..." ,
+        answer: "Mads Mikkelsen"
+    },
+    {   image: "images/Pandora.png" ,
+        question: "The world-known jewelry brand originated in Copenhagen is..." ,
+        answer: "Pandora"
+    },
+    {   image:  "images/B&O.png" , 
+        question: "Danish high-end audio and multimedia company known for its quality audio products is called..." ,
+        answer: "Bang&Olufsen (B&O)"
+    },
+    {   image: "images/ArneJakobsen.png" ,
+        question: "The name of the Danish architect and furniture designer, known for simple and well-designed chairs is..." ,
+        answer: "Arne Jakobsen"
+    },
+    {   image: "images/HCAndersen.png", 
+        question: "Name of the Danish writer of plays, best remembered for his fairy tales is.." ,
+        answer: "Hans Christian Andersen"
+    },
+    {   image: "images/Oresund.png" ,
+        question: "Name of the second longest bridge in Europe, connecting Denmark and Sweden is..." ,
+        answer: "Öresund Bridge"
+    }
+    ];
+    
+    // Let's check if the array is there
+    // console.log(flashCardsArray);
 
 
     // save the new card from user
 
-    // document.getElementById("submitButton").addEventListener("click", () => {
-    //   const questionInput = document.getElementById("questionFromUser").value.trim();
-    //   const answerInput = document.getElementById("answerFromUser").value.trim();
+    // let submitButon = document.getElementById('submitButton');
+    // let questionFromUser = document.getElementById('questionFromUser');
+    // let answerFromUser = document.getElementById('answerFromUser');
 
-      // Make sure that user did not submit empty fields
+    // submitButon?.addEventListener('click', () => {
+    //     const questionInput = questionFromUser.value;
+    //     const answerInput = answerFromUser.value;
 
-    // ANDJELA LINES START
-    //   if (!questionInput || !answerInput) {
-        // alert("Please enter both a question and an answer");
-    //     return;
+    //      //   Make sure that user did not submit empty fields
+    //     if (!questionInput || !answerInput) {
+    //         alert("Please enter both a question and an answer");
+    //         return;
     //   }
-
     //   // Saving user's input as a new const, along with provided default image
     //   const newCard = {
     //     image: "images/defaultImageForNewCard.png",
@@ -112,24 +162,30 @@ if (startGame) {
     //     answer: answerInput
     //   };
 
-    //   //adding new card on the end of our flashCardArray
+    //    //adding new card on the end of our flashCardArray
     //   flashCardsArray.push(newCard);
 
     //   //saving the whole array with the new card on local storage
     //   //The array needs to be stringified before saving in local storage.
     //   localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
-    //   //test to see if the card is saved
-    //   console.log("New flashcard saved:", newCard);
     //   // alert for user > I should style this
     //   alert("New flashcard saved successfully");
 
-    //   // Clear input fields after saving
+    //    // Clear input fields after saving
     //   document.getElementById("questionFromUser").value = "";
     //   document.getElementById("answerFromUser").value = "";
+      
+    // })
+    // document.getElementById("submitButton").addEventListener("click", () => {
+    //   const questionInput = document.getElementById("questionFromUser").value.trim();
+    //   const answerInput = document.getElementById("answerFromUser").value.trim();
 
-    //   //test to see the array
-    //   console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
+   
+
+    // ANDJELA LINES START
+      
+    
 
 
 
@@ -339,6 +395,21 @@ let submitAnswers = document.querySelectorAll('.submit'); //variable for all sub
 let submitOneBtn = document.getElementById('submitOne'); //variable for player one submit answer
 let submitTwoBtn = document.getElementById('submitTwo'); //variable for player two submit answer
 let showAnswer = document.getElementById('showAnswer'); //variable for show answer button
+let flashCardFront = document.querySelectorAll('.frontCard'); //variable used for clicking to flip the front 
+let flashCards = document.querySelectorAll(".flashCard"); //variable that holds all the cards
+let cardFront = document.getElementById('front'); //variable for front of the card
+let cardBack = document.querySelector('.backCard'); //variable for back of the card
+let next = document.getElementById('nextCard'); //variable for next card button
+
+//flipping the front card to back, but not the other way around
+function cardFlipGame() {
+    flashCards.forEach(flashCard => {
+    flashCard.classList.add("flip");
+    cardBack.style.color ="white";
+});
+}
+
+flashCardFront.forEach(card => card.addEventListener("click", flipValidate));
 
 //counters for scores
 let countOne = 0;
@@ -349,42 +420,62 @@ function validateAnswer() {
     answerOneDisplay.innerText = storeAnswerOne;
     answerTwoDisplay.innerText = storeAnswerTwo;
 
-     if (storeAnswerOne === 'Hygge') {
-        console.log(answerOne.value);
+    if (storeAnswerOne.toUpperCase() == cardBack.innerText.toUpperCase()) {
         countOne++;
         scoreOne.innerText = countOne;
         changeColorCorrectAnswer(answerOneDisplay);
     }
-    else if (storeAnswerTwo === 'Hygge') {
+    else {
+        changeColorWrongAnswer(answerOneDisplay);
+    }
+
+    if (storeAnswerTwo.toUpperCase() == cardBack.innerText.toUpperCase()) {
         countTwo++;
         scoreTwo.innerText = countTwo;
         changeColorCorrectAnswer(answerTwoDisplay);
     }
+    else {
+        changeColorWrongAnswer(answerTwoDisplay);
+    }
 }
+
 //function to change the color of the correct answer to green after showing the answer
 function changeColorCorrectAnswer(element) {
     element.style.color = "green";
 }
+
+function changeColorWrongAnswer(element) {
+    element.style.color = "red";
+}
 //function that calls two functions - flip the card to show the correct answer and validates the answer of the players
 function flipValidate () {
-    flipCard();
+    cardFlipGame();
     validateAnswer();
 }
 
-//when show answer is clicked then
-showAnswer?.addEventListener('click', flipValidate);
+ function pronounceWinner() {
+    console.log(scoreOne, scoreTwo);
+    cardFront.innerText = "WHO IS THE WINNER OF THIS GAME?"
+    if (countOne > countTwo) {
+        cardBack.innerText = `${playerOneName.innerText} WINS!`;
+    }
+    else if (countOne < countTwo) {
+        cardBack.innerText = `${playerTwoName.innerText} WINS!`;
+    }
+    else {
+        cardBack.innerText = "IT IS A TIE!"
+    }
+ }
 
-let storeAnswerOne = "";
-let storeAnswerTwo = "";
+let storeAnswerOne = ""; //assign empty array to remove input
+let storeAnswerTwo = ""; //assign empty array to remove input
 
 //when submit button is clicked then 
 submitAnswers.forEach(submitAnswer => {
     submitAnswer.addEventListener('click', (event) => {
         const clickedButton = event.target;
         if (clickedButton.id === 'submitOne') {
-            console.log("answer one before storing: " + answerOne.value)
             storeAnswerOne = answerOne.value;
-            console.log("answer one after storing: " + answerOne.value)
             answerOne.value = "";
         }
         else if (clickedButton.id === 'submitTwo') {
@@ -393,6 +484,23 @@ submitAnswers.forEach(submitAnswer => {
         } 
 })
 });
+
+function loadNextCard() {
+    const random = Math.floor(Math.random() * retrievedFlashCards.length); //index of a random flashcard
+    cardFront.innerText = retrievedFlashCards[random].question; //asign question at index random to front card
+    cardBack.innerText = retrievedFlashCards[random].answer; //asign answer at index random to back card
+    flashCards.forEach(card => card.classList.remove('flip')); //remove flip from answer side to force the next card to show front
+    retrievedFlashCards.splice(random, 1); //remove the card at index random to prevent repeat
+    cardBack.style.color =" #87A9AA"; //change the font color to mask a bug
+    if (retrievedFlashCards.length === 0) {
+        pronounceWinner();
+    }
+}
+
+let retrievedFlashCards = JSON.parse(localStorage.getItem("flashCardsArray"));//get parsed array from local storage
+
+//card flipping and connecting to the array
+next.addEventListener('click', loadNextCard);
 
 // input answer by clicking the enter button
 // answers.forEach(answer => {
@@ -409,9 +517,7 @@ submitAnswers.forEach(submitAnswer => {
 
 
 function downloadJSON() {
-    let retrieveFlashCards =  localStorage.getItem("flashCardsArray");
-    console.log("These are the flashcards: " + retrieveFlashCards);
-    console.log("in the downloadJSON function now");
+    let retrieveFlashCards = localStorage.getItem("flashCardsArray");
     const link = document.createElement('a');
     const fileJSON = new Blob([retrieveFlashCards], { type:'application/json'});
     link.href = URL.createObjectURL(fileJSON);
@@ -516,3 +622,5 @@ function downloadJSON() {
 
 
 // MATEA LINES STOP
+
+
