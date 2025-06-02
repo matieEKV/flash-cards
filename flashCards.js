@@ -561,25 +561,6 @@ submitAnswers.forEach(submitAnswer => {
             storeAnswerTwo = answerTwo.value;
             answerTwo.value = "";
         } 
-        
-//     });
-// });
-    //     answers.forEach(answer => {
-    //         const clickedButton = event.target;
-    //         if (clickedButton.id === 'submitOne') {
-    //             storeAnswerOne = answerOne.value;
-    //             console.log("this is after storing the input" + storeAnswerOne);
-    //             answerOne.value = "";
-    //             // console.log("this is after clearing the input" + storeAnswerOne);
-    //         }
-    //         else if (clickedButton.id === 'submitTwo') {
-    //             storeAnswerTwo = answerTwo.value;
-    //             //answerTwo.value = "";
-    //         } 
-    //         //answer.value = "";
-    // });
-    
-    
 })
 });
 
@@ -593,22 +574,6 @@ submitAnswers.forEach(submitAnswer => {
 //         }
 // })
 // })
-
-
-
-// const clickedButton = event.target;
-//         if (clickedButton.id === 'submitOne') {
-//             storeAnswerOne = answerOne.value;
-//             console.log("this is after storing the input" + storeAnswerOne);
-//              answerOne.value = "";
-//              console.log("this is after clearing the input" + storeAnswerOne);
-//         }
-//         else if (clickedButton.id === 'submitTwo') {
-//             storeAnswerTwo = answerTwo.value;
-//             answerTwo.value = "";
-//         } 
-//     });
-// });
 
 //downloading flashcards as json
 
