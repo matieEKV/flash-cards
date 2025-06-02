@@ -55,7 +55,7 @@ function unDim() {
     document.getElementById("overlayTwo").style.display = "none";
 }
 // Close modal window
-closeBtn.addEventListener('click', closeModal);
+closeBtn?.addEventListener('click', closeModal);
 
 // save player names
 let playerOneNameInput = document.getElementById('playerOne'); //name for player one
@@ -82,9 +82,7 @@ function addNamesHideContainer() {
     unDim();
 }
 
-if (startGame) {
-    startGame.addEventListener('click', addNamesHideContainer);
-}
+    startGame?.addEventListener('click', addNamesHideContainer);
 
 //array of cards
 
@@ -134,47 +132,54 @@ var flashCardsArray = [
     ];
     
     // Let's check if the array is there
-    console.log(flashCardsArray);
+    // console.log(flashCardsArray);
 
     // save the new card from user
 
+    let submitButon = document.getElementById('submitButton');
+    let questionFromUser = document.getElementById('questionFromUser');
+    let answerFromUser = document.getElementById('answerFromUser');
+
+    submitButon?.addEventListener('click', () => {
+        const questionInput = questionFromUser.value;
+        const answerInput = answerFromUser.value;
+
+         //   Make sure that user did not submit empty fields
+        if (!questionInput || !answerInput) {
+            alert("Please enter both a question and an answer");
+            return;
+      }
+      // Saving user's input as a new const, along with provided default image
+      const newCard = {
+        image: "images/defaultImageForNewCard.png",
+        question: questionInput,
+        answer: answerInput
+      };
+
+       //adding new card on the end of our flashCardArray
+      flashCardsArray.push(newCard);
+
+      //saving the whole array with the new card on local storage
+      //The array needs to be stringified before saving in local storage.
+      localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+
+      // alert for user > I should style this
+      alert("New flashcard saved successfully");
+
+       // Clear input fields after saving
+      document.getElementById("questionFromUser").value = "";
+      document.getElementById("answerFromUser").value = "";
+      
+    })
     // document.getElementById("submitButton").addEventListener("click", () => {
     //   const questionInput = document.getElementById("questionFromUser").value.trim();
     //   const answerInput = document.getElementById("answerFromUser").value.trim();
 
-      // Make sure that user did not submit empty fields
+   
 
     // ANDJELA LINES START
-    //   if (!questionInput || !answerInput) {
-        // alert("Please enter both a question and an answer");
-    //     return;
-    //   }
-
-    //   // Saving user's input as a new const, along with provided default image
-    //   const newCard = {
-    //     image: "images/defaultImageForNewCard.png",
-    //     question: questionInput,
-    //     answer: answerInput
-    //   };
-
-    //   //adding new card on the end of our flashCardArray
-    //   flashCardsArray.push(newCard);
-
-    //   //saving the whole array with the new card on local storage
-    //   //The array needs to be stringified before saving in local storage.
-    //   localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
-
-    //   //test to see if the card is saved
-    //   console.log("New flashcard saved:", newCard);
-    //   // alert for user > I should style this
-    //   alert("New flashcard saved successfully");
-
-    //   // Clear input fields after saving
-    //   document.getElementById("questionFromUser").value = "";
-    //   document.getElementById("answerFromUser").value = "";
-
-    //   //test to see the array
-    //   console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
+      
+    
 
 
 
@@ -686,3 +691,5 @@ function downloadJSON() {
 
 
 // MATEA LINES STOP
+
+
