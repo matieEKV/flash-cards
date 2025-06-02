@@ -514,6 +514,20 @@ let submitAnswers = document.querySelectorAll('.submit'); //variable for all sub
 let submitOneBtn = document.getElementById('submitOne'); //variable for player one submit answer
 let submitTwoBtn = document.getElementById('submitTwo'); //variable for player two submit answer
 let showAnswer = document.getElementById('showAnswer'); //variable for show answer button
+let flashCardFront = document.querySelectorAll('.frontCard'); //variable used for clicking to flip the front 
+let flashCards = document.querySelectorAll(".flashCard"); //variable that holds all the cards
+let cardFront = document.getElementById('front'); //variable for front of the card
+let cardBack = document.querySelector('.backCard'); //variable for back of the card
+let next = document.getElementById('nextCard'); //variable for next card button
+
+//flipping the front card to back, but not the other way around
+function cardFlipGame() {
+    flashCards.forEach(flashCard => {
+    flashCard.classList.add("flip");
+});
+}
+
+flashCardFront.forEach(card => card.addEventListener("click", flipValidate));
 
 //counters for scores
 let countOne = 0;
@@ -542,12 +556,12 @@ function changeColorCorrectAnswer(element) {
 }
 //function that calls two functions - flip the card to show the correct answer and validates the answer of the players
 function flipValidate () {
-    flipCard();
+    cardFlipGame();
     validateAnswer();
 }
 
 //when show answer is clicked then
-showAnswer?.addEventListener('click', flipValidate);
+//showAnswer?.addEventListener('click', flipValidate);
 
 let storeAnswerOne = "";
 let storeAnswerTwo = "";
@@ -568,6 +582,8 @@ submitAnswers.forEach(submitAnswer => {
         } 
 })
 });
+
+
 
 //card flipping and connecting to the array
 next.addEventListener('click', () => {

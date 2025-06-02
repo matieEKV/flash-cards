@@ -84,7 +84,7 @@ body {
 }
 
 /* position the front and back side */
-.card {
+.flashCard {
    position: relative;
    width: 600px;
    height: 425px;
@@ -93,16 +93,16 @@ body {
    transform-style: preserve-3d;
 }
 
-.card:active {
+.flashCard:active {
    transform: scale(0.97);
    transition: transform .2s;
 }
 
-.card.flip {
+.flashCard.flip {
    transform: rotateY(180deg);
 }
-.front,
-.back{
+.frontCard,
+.backCard{
    height: 100%;
    width: 100%;
    display: flex;
@@ -116,14 +116,14 @@ body {
    color: white;
 }
 
-.front{
+.frontCard{
    background: linear-gradient(#87A9AA);
    z-index: 2;
    backface-visibility: hidden;
    position: absolute; 
 }
 
-.back{
+.backCard{
    background: linear-gradient(#87A9AA);
    z-index: 1;
    transform: rotateY(180deg);
@@ -380,4 +380,14 @@ body {
    position: absolute;
    bottom: 5%;
    border: solid 2px #FE3F42;
+}
+
+#nextCard {
+   position: fixed;
+   bottom: 5%;
+   border: solid 2px #FE3F42;
+   z-index: 3;
+   transform: rotateY(180deg);
+   left: 20%;
+   backface-visibility: hidden;
 }
