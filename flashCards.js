@@ -53,7 +53,7 @@ function unDim() {
     document.getElementById("overlayTwo").style.display = "none";
 }
 // Close modal window
-closeBtn.addEventListener('click', closeModal);
+closeBtn?.addEventListener('click', closeModal);
 
 // save player names
 let playerOneNameInput = document.getElementById('playerOne'); //name for player one
@@ -408,7 +408,7 @@ function validateAnswer() {
         scoreOne.innerText = countOne;
         changeColorCorrectAnswer(answerOneDisplay);
     }
-    else if (storeAnswerTwo === 'Hygge') {
+    else if (storeAnswerTwo === flashCardsArray.answer) {
         countTwo++;
         scoreTwo.innerText = countTwo;
         changeColorCorrectAnswer(answerTwoDisplay);
@@ -495,9 +495,18 @@ function downloadJSON() {
     URL.revokeObjectURL(link.href);
 };
 
+//CARDS
 
+let cardFront = document.querySelector('.front'); //variable for front of the card
+let cardBack = document.querySelector('.back'); //variable for back of the card
+let next = document.getElementById('btn-next1'); //variable for next card button
 
-
+//when next card button is clicked then
+next.addEventListener('click', () => {
+    const random = Math.floor(Math.random() * flashCardsArray.length); //index of a random flashcard
+    cardFront.innerText = flashCardsArray[random].question;
+    cardBack.innerText = flashCardsArray[random].answer;
+});
 
 
 
