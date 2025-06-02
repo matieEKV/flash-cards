@@ -13,7 +13,7 @@
         <a href="index.html">
             <button class="buttonPopup" id="returnToMain">HOME PAGE</button>
         </a>
-        <div class="top-welcome">
+        <div class="topWelcome">
             <p class="welcome">TWO PLAYER MODE</p>
             <p class="bodyText"><i>Danmark 101</i></p>
         </div>
@@ -24,7 +24,7 @@
 
     <!-- <div class="gameContent"> -->
         <div class="gameButtonContainer">
-            <button class="button" id="createPlayer" onclick="openModal()">CREATE NEW PLAYER</button>
+            <button class="button" id="createPlayer" onclick="openModal()">ADD PLAYERS</button>
         </div>
         <!-- overlay makes dimming of the page possible -->
         <div id="overlayTwo"></div>
@@ -48,7 +48,7 @@
             <div class="answer" id="answerOne">ANSWER</div>
             <div class="answerInput">
                 <label class="answerLabel">Your Answer Here: 
-                    <input id="answerOneInput" type="text" required />
+                    <input class="answers" id="answerOneInput" type="text" required />
                 </label >
                 <button class="submit" id="submitOne">Submit</button>
         </div>
@@ -63,6 +63,10 @@
                 <div class="back">HYGGE!</div>
                 </div>
         </div>
+
+        <button class="button" id="showAnswer" >SHOW ANSWER</button>
+        </div>
+        
     <!-- container for player 2 name and score -->
         <div class="playerBox">
             <div class="playerName" id="playerTwoName">PLAYER TWO NAME</div>
@@ -70,7 +74,7 @@
             <div class="answer" id="answerTwo">ANSWER</div>
             <div class="answerInput">
                 <label class="answerLabel">Your Answer Here: 
-                    <input id="answerTwoInput" type="text" required />
+                    <input class="answers" id="answerTwoInput" type="text" required />
                 </label>
                 <button class="submit" id="submitTwo">Submit</button>
             </div>
