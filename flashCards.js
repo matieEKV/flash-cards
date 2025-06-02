@@ -54,7 +54,7 @@ let flashCardsArray = [
     }
   ];
 
-/*
+
 //  Start Button Funtionality-Takes you to first question-hygge
 // document.getElementById("startButton") .onclick = function () {
 //     window.location.href = "startLearningpage.html";
@@ -140,53 +140,55 @@ function addNamesHideContainer() {
 if (startGame) {
     startGame.addEventListener('click', addNamesHideContainer);
 }
-*/
+
 
     // ANDJELA LINES START
    
-    // Let's check if the array is there
-    console.log(flashCardsArray);
+// Let's check if the array is there
+console.log(flashCardsArray);
 
-    // save the new card from user
-    document.getElementById("submitButton").addEventListener("click", () => {
-      const questionInputNewCard = document.getElementById("questionFromUser").value;
-      const answerInputNewCard = document.getElementById("answerFromUser").value;
+// Check if the submit button exists before attaching the event listener
+const submitButton = document.getElementById("submitButton");
 
-      
-      // Make sure that user did not submit empty fields
-      if (!questionInputNewCard || !answerInputNewCard) {
-        alert("Please enter both a question and an answer.");
-        return;
-      };
-      
-      // Saving user's input as a new const, along with provided default image
-      const newCard = {
-        image: "images/defaultImageForNewCard",
-        question: questionInputNewCard,
-        answer: answerInputNewCard
-      };
+if (submitButton) {
+  // Save the new card from user
+  submitButton.addEventListener("click", () => {
+    const questionInputNewCard = document.getElementById("questionFromUser").value;
+    const answerInputNewCard = document.getElementById("answerFromUser").value;
 
-      //adding new card on the end of our flashCardArray
-      flashCardsArray.push(newCard);
+    // Make sure that user did not submit empty fields
+    if (!questionInputNewCard || !answerInputNewCard) {
+      alert("Please enter both a question and an answer.");
+      return;
+    }
 
-      //saving the whole array with the new card on local storage
-      //The array needs to be stringified before saving in local storage.
-      localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+    // Saving user's input as a new const, along with provided default image
+    const newCard = {
+      image: "images/defaultImageForNewCard",
+      question: questionInputNewCard,
+      answer: answerInputNewCard
+    };
 
-      //test to see if the card is saved
-      console.log("New flashcard saved:", newCard);
+    // Adding new card to the end of our flashCardsArray
+    flashCardsArray.push(newCard);
 
-      // alert for user > I should style this
-      alert("New flashcard saved successfully.");
+    // Saving the whole array with the new card to local storage
+    localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
-      // Clear input fields after saving
-      document.getElementById("questionFromUser").value = "";
-      document.getElementById("answerFromUser").value = "";
+    // Test to see if the card is saved
+    console.log("New flashcard saved:", newCard);
 
-      //test to see the array
-      console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
-    });
+    // Alert for user
+    alert("New flashcard saved successfully.");
 
+    // Clear input fields after saving
+    document.getElementById("questionFromUser").value = "";
+    document.getElementById("answerFromUser").value = "";
+
+    // Test to see the array
+    console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
+  });
+}
 
 
 
@@ -376,7 +378,7 @@ if (startGame) {
 
 
 
-/*//  MATEA LINES START
+//  MATEA LINES START
 
 //downloading flashcards as json
 
@@ -573,4 +575,3 @@ function downloadJSON() {
 
 
 // MATEA LINES STOp
-*/
