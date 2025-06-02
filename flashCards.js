@@ -610,7 +610,20 @@ submitAnswers.forEach(submitAnswer => {
 //     });
 // });
 
+//downloading flashcards as json
 
+
+function downloadJSON() {
+    let retrieveFlashCards =  localStorage.getItem("flashCardsArray");
+    console.log("These are the flashcards: " + retrieveFlashCards);
+    console.log("in the downloadJSON function now");
+    const link = document.createElement('a');
+    const fileJSON = new Blob([retrieveFlashCards], { type:'application/json'});
+    link.href = URL.createObjectURL(fileJSON);
+    link.download = "Danmark101.json";
+    link.click();
+    URL.revokeObjectURL(link.href);
+};
 
 
 
