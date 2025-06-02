@@ -74,11 +74,12 @@ function addNames() {
 function hideContainer() {
     gameButtonContainer.style.display = 'none';
 }
-//function that calls foun functions when start button clicked
+//function that calls four functions when start button clicked
 function addNamesHideContainer() {
     addNames();
+    loadNextCard();
     hideContainer();
-    closeModal()
+    closeModal();
     unDim();
 }
 
@@ -524,6 +525,7 @@ let next = document.getElementById('nextCard'); //variable for next card button
 function cardFlipGame() {
     flashCards.forEach(flashCard => {
     flashCard.classList.add("flip");
+    cardBack.style.color ="white";
 });
 }
 
@@ -538,21 +540,32 @@ function validateAnswer() {
     answerOneDisplay.innerText = storeAnswerOne;
     answerTwoDisplay.innerText = storeAnswerTwo;
 
-     if (storeAnswerOne === 'Hygge') {
-        console.log(answerOne.value);
+    if (storeAnswerOne.toUpperCase() == cardBack.innerText.toUpperCase()) {
         countOne++;
         scoreOne.innerText = countOne;
         changeColorCorrectAnswer(answerOneDisplay);
     }
-    else if (storeAnswerTwo === 'Hygge') {
+    else {
+        changeColorWrongAnswer(answerOneDisplay);
+    }
+
+    if (storeAnswerTwo.toUpperCase() == cardBack.innerText.toUpperCase()) {
         countTwo++;
         scoreTwo.innerText = countTwo;
         changeColorCorrectAnswer(answerTwoDisplay);
     }
+    else {
+        changeColorWrongAnswer(answerTwoDisplay);
+    }
 }
+
 //function to change the color of the correct answer to green after showing the answer
 function changeColorCorrectAnswer(element) {
     element.style.color = "green";
+}
+
+function changeColorWrongAnswer(element) {
+    element.style.color = "red";
 }
 //function that calls two functions - flip the card to show the correct answer and validates the answer of the players
 function flipValidate () {
@@ -560,20 +573,29 @@ function flipValidate () {
     validateAnswer();
 }
 
-//when show answer is clicked then
-//showAnswer?.addEventListener('click', flipValidate);
+ function pronounceWinner() {
+    console.log(scoreOne, scoreTwo);
+    cardFront.innerText = "WHO IS THE WINNER OF THIS GAME?"
+    if (countOne > countTwo) {
+        cardBack.innerText = `${playerOneName.innerText} WINS!`;
+    }
+    else if (countOne < countTwo) {
+        cardBack.innerText = `${playerTwoName.innerText} WINS!`;
+    }
+    else {
+        cardBack.innerText = "IT IS A TIE!"
+    }
+ }
 
-let storeAnswerOne = "";
-let storeAnswerTwo = "";
+let storeAnswerOne = ""; //assign empty array to remove input
+let storeAnswerTwo = ""; //assign empty array to remove input
 
 //when submit button is clicked then 
 submitAnswers.forEach(submitAnswer => {
     submitAnswer.addEventListener('click', (event) => {
         const clickedButton = event.target;
         if (clickedButton.id === 'submitOne') {
-            console.log("answer one before storing: " + answerOne.value)
             storeAnswerOne = answerOne.value;
-            console.log("answer one after storing: " + answerOne.value)
             answerOne.value = "";
         }
         else if (clickedButton.id === 'submitTwo') {
@@ -583,14 +605,22 @@ submitAnswers.forEach(submitAnswer => {
 })
 });
 
+function loadNextCard() {
+    const random = Math.floor(Math.random() * retrievedFlashCards.length); //index of a random flashcard
+    cardFront.innerText = retrievedFlashCards[random].question; //asign question at index random to front card
+    cardBack.innerText = retrievedFlashCards[random].answer; //asign answer at index random to back card
+    flashCards.forEach(card => card.classList.remove('flip')); //remove flip from answer side to force the next card to show front
+    retrievedFlashCards.splice(random, 1); //remove the card at index random to prevent repeat
+    cardBack.style.color =" #87A9AA"; //change the font color to mask a bug
+    if (retrievedFlashCards.length === 0) {
+        pronounceWinner();
+    }
+}
 
+let retrievedFlashCards = JSON.parse(localStorage.getItem("flashCardsArray"));//get parsed array from local storage
 
 //card flipping and connecting to the array
-next.addEventListener('click', () => {
-    const random = Math.floor(Math.random() * flashCardsArray.length); //index of a random flashcard
-    cardFront.innerText = flashCardsArray[random].question;
-    cardBack.innerText = flashCardsArray[random].answer;
-});
+next.addEventListener('click', loadNextCard);
 
 // input answer by clicking the enter button
 // answers.forEach(answer => {
@@ -607,9 +637,7 @@ next.addEventListener('click', () => {
 
 
 function downloadJSON() {
-    let retrieveFlashCards =  localStorage.getItem("flashCardsArray");
-    console.log("These are the flashcards: " + retrieveFlashCards);
-    console.log("in the downloadJSON function now");
+    let retrieveFlashCards = localStorage.getItem("flashCardsArray");
     const link = document.createElement('a');
     const fileJSON = new Blob([retrieveFlashCards], { type:'application/json'});
     link.href = URL.createObjectURL(fileJSON);
