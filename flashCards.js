@@ -88,7 +88,7 @@ if (startGame) {
 
 //array of cards
 
-let flashCardsArray = [
+var flashCardsArray = [
     {
         image: "images/hygge.png" ,
         question: "What is the defining characteristic of Danish culture?",
@@ -145,36 +145,36 @@ let flashCardsArray = [
       // Make sure that user did not submit empty fields
 
     // ANDJELA LINES START
-      if (!questionInput || !answerInput) {
-        alert("Please enter both a question and an answer");
-        return;
-      }
+    //   if (!questionInput || !answerInput) {
+        // alert("Please enter both a question and an answer");
+    //     return;
+    //   }
 
-      // Saving user's input as a new const, along with provided default image
-      const newCard = {
-        image: "images/defaultImageForNewCard.png",
-        question: questionInput,
-        answer: answerInput
-      };
+    //   // Saving user's input as a new const, along with provided default image
+    //   const newCard = {
+    //     image: "images/defaultImageForNewCard.png",
+    //     question: questionInput,
+    //     answer: answerInput
+    //   };
 
-      //adding new card on the end of our flashCardArray
-      flashCardsArray.push(newCard);
+    //   //adding new card on the end of our flashCardArray
+    //   flashCardsArray.push(newCard);
 
-      //saving the whole array with the new card on local storage
-      //The array needs to be stringified before saving in local storage.
-      localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+    //   //saving the whole array with the new card on local storage
+    //   //The array needs to be stringified before saving in local storage.
+    //   localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
-      //test to see if the card is saved
-      console.log("New flashcard saved:", newCard);
-      // alert for user > I should style this
-      alert("New flashcard saved successfully");
+    //   //test to see if the card is saved
+    //   console.log("New flashcard saved:", newCard);
+    //   // alert for user > I should style this
+    //   alert("New flashcard saved successfully");
 
-      // Clear input fields after saving
-      document.getElementById("questionFromUser").value = "";
-      document.getElementById("answerFromUser").value = "";
+    //   // Clear input fields after saving
+    //   document.getElementById("questionFromUser").value = "";
+    //   document.getElementById("answerFromUser").value = "";
 
-      //test to see the array
-      console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
+    //   //test to see the array
+    //   console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
 
 
 
@@ -542,7 +542,7 @@ function flipValidate () {
 }
 
 //when show answer is clicked then
-showAnswer.addEventListener('click', flipValidate);
+showAnswer?.addEventListener('click', flipValidate);
 
 let storeAnswerOne = "";
 let storeAnswerTwo = "";
