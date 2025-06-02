@@ -9,7 +9,7 @@ body {
    background-blend-mode: lighten;
    height: 100dvh;
    min-height: 100vh;
-   justify-content: center; /*  vertical alignment*/
+   justify-content: space-around; /*  vertical alignment*/
     align-items: center;    /*  horizontal alignment*/
    flex-wrap: nowrap; 
    display: flex;
