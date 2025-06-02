@@ -569,6 +569,13 @@ submitAnswers.forEach(submitAnswer => {
 })
 });
 
+//card flipping and connecting to the array
+next.addEventListener('click', () => {
+    const random = Math.floor(Math.random() * flashCardsArray.length); //index of a random flashcard
+    cardFront.innerText = flashCardsArray[random].question;
+    cardBack.innerText = flashCardsArray[random].answer;
+});
+
 // input answer by clicking the enter button
 // answers.forEach(answer => {
 //     answer.addEventListener('keypress', (e) => {
