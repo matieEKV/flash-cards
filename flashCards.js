@@ -137,41 +137,41 @@ var flashCardsArray = [
 
     // save the new card from user
 
-    let submitButon = document.getElementById('submitButton');
-    let questionFromUser = document.getElementById('questionFromUser');
-    let answerFromUser = document.getElementById('answerFromUser');
+    // let submitButon = document.getElementById('submitButton');
+    // let questionFromUser = document.getElementById('questionFromUser');
+    // let answerFromUser = document.getElementById('answerFromUser');
 
-    submitButon?.addEventListener('click', () => {
-        const questionInput = questionFromUser.value;
-        const answerInput = answerFromUser.value;
+    // submitButon?.addEventListener('click', () => {
+    //     const questionInput = questionFromUser.value;
+    //     const answerInput = answerFromUser.value;
 
-         //   Make sure that user did not submit empty fields
-        if (!questionInput || !answerInput) {
-            alert("Please enter both a question and an answer");
-            return;
-      }
-      // Saving user's input as a new const, along with provided default image
-      const newCard = {
-        image: "images/defaultImageForNewCard.png",
-        question: questionInput,
-        answer: answerInput
-      };
+    //      //   Make sure that user did not submit empty fields
+    //     if (!questionInput || !answerInput) {
+    //         alert("Please enter both a question and an answer");
+    //         return;
+    //   }
+    //   // Saving user's input as a new const, along with provided default image
+    //   const newCard = {
+    //     image: "images/defaultImageForNewCard.png",
+    //     question: questionInput,
+    //     answer: answerInput
+    //   };
 
-       //adding new card on the end of our flashCardArray
-      flashCardsArray.push(newCard);
+    //    //adding new card on the end of our flashCardArray
+    //   flashCardsArray.push(newCard);
 
-      //saving the whole array with the new card on local storage
-      //The array needs to be stringified before saving in local storage.
-      localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+    //   //saving the whole array with the new card on local storage
+    //   //The array needs to be stringified before saving in local storage.
+    //   localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 
-      // alert for user > I should style this
-      alert("New flashcard saved successfully");
+    //   // alert for user > I should style this
+    //   alert("New flashcard saved successfully");
 
-       // Clear input fields after saving
-      document.getElementById("questionFromUser").value = "";
-      document.getElementById("answerFromUser").value = "";
+    //    // Clear input fields after saving
+    //   document.getElementById("questionFromUser").value = "";
+    //   document.getElementById("answerFromUser").value = "";
       
-    })
+    // })
     // document.getElementById("submitButton").addEventListener("click", () => {
     //   const questionInput = document.getElementById("questionFromUser").value.trim();
     //   const answerInput = document.getElementById("answerFromUser").value.trim();
