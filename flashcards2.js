@@ -12,107 +12,79 @@ if (startButton) {
 //   array
 import { flashCardsArray} from './flashcarArray.js'
 
-  // function random
-  function shuffleArray(array) {
-   
-    array.sort(() => Math.random() - 0.5);
+
+// Get elements from page
+var questionDiv = document.getElementById("cardQuestion");
+var answerDiv = document.getElementById("cardAnswer");
+var nextBtn = document.getElementById("btn-next1");
+var backBtn = document.getElementById("btn-back1");
+var flipCard = document.querySelector("#cardContainer .card");
+var homeBtn = document.getElementById("frontPage");
+
+// Eventlistener for flipping  card
+if (flipCard) {
+  flipCard.addEventListener("click", function () {
+      flipCard.classList.toggle("flip");
+  });
+}
+
+// Create a working copy of flashcards for the current session/game
+let currentCards = flashCardsArray.length > 0 ? [...flashCardsArray] : [];
+
+function loadNextCard() {
+  if (!flipCard || !questionDiv || !answerDiv) {
+     return;
   }
-  // shuffle the flashCardsArray  when a cardstarts
-shuffleArray(flashCardsArray);
 
-console.log("Shuffled flashCardsArray:", flashCardsArray);
+  if (currentCards.length === 0) {//when the end of the array is reached - u finished
+      youhavefinished();
+      return; // Exit if no cards left
+  }
 
+  const random = Math.floor(Math.random() * currentCards.length);
+  const randomCard = currentCards[random];
 
-//  elements from startLearningpage.html
-var cardQuestionElement = document.getElementById('cardQuestion');
-var cardAnswerElement = document.getElementById('cardAnswer');
-var nextButton = document.getElementById('btn-next1');
-var prevButton = document.getElementById('btn-back1');
-var cardToFlip = document.querySelector('#cardContainer .card');
-var frontPageButton = document.getElementById('frontPage');
+  questionDiv.innerText = randomCard.question;
 
-// function e flip action for the main card
-function performCardFlip() {
-    // 'this' refers to the element the listener is attached to (cardToFlip)
-    if (this) {
-        this.classList.toggle("flip");
-    }
-}
+  let answerHTML = "";
+     if (randomCard.image) {
+         answerHTML += "<img src='" + randomCard.image + "' style='max-width: 90%; max-height:120px; margin:10px auto;display:block;border-radius:5px;'>";
+  }
+  answerHTML += "<p>" + randomCard.answer + "</p>";
+  answerDiv.innerHTML = answerHTML;
 
-// Attach event listener for flipping to the specific card, if it exists
-if (cardToFlip) {
-    cardToFlip.addEventListener('click', performCardFlip);
-}
+  // make card not flipped when goes to next one
+  flipCard.classList.remove('flip');
 
-var currentCardIndex = 0;
-// logical 
-function displayCard() {
-   
-    if (!flashCardsArray || flashCardsArray.length === 0) {
-        if (cardQuestionElement) { // if element exists 
-            cardQuestionElement.innerHTML = "<p>No cards !</p>";
-        }
-        if (cardAnswerElement) { //  if element exists
-            cardAnswerElement.innerHTML = ""; // Use innerHTML
-        }
-        return;
-    }
+  // answerDiv.style.color =" #87A9AA"; 
 
-    var cardData = flashCardsArray[currentCardIndex];
+  currentCards.splice(random, 1); // remove card to prevent repeat  
+};
 
-    // Display question on the front
-    var frontHTML = "<p style='text-align: center;'>" + cardData.question + "</p>";
-    if (cardQuestionElement) cardQuestionElement.innerHTML = frontHTML;
+function youhavefinished(){
+  if (questionDiv) {
+      questionDiv.innerText = "U Finished!";
+  }
+  if (answerDiv) {
+      answerDiv.innerHTML = "<p>YAY</p>"; // Use innerHTML if setting HTML content
+  }
+};
 
-    // Display answer and image on the back
-    var backHTML = '';
-    if (cardData.image) {
-        backHTML += "<img src='" + cardData.image + "' alt='Card image' style='max-width: 90%; max-height: 120px; display: block; margin: 10px auto; border-radius: 5px;'>";
-    }
-    backHTML += "<p style='text-align: center;'>" + cardData.answer + "</p>";
-    if (cardAnswerElement) cardAnswerElement.innerHTML = backHTML;
+// Eventlisteners for end  
+if (questionDiv && answerDiv && nextBtn && flipCard) { // Ensure flipCard is also checked
+loadNextCard();
 
-    //  card is showing the front when a new card is displayed
+  // next button to use loadNextCard
+  nextBtn.addEventListener("click", loadNextCard);
 
-     if (cardToFlip && cardToFlip.classList.contains('flip')) {
-        cardToFlip.classList.remove('flip');
-    }
-}
-
-function showNextCard() {
-    if (!flashCardsArray || flashCardsArray.length === 0) return; 
-    currentCardIndex = currentCardIndex + 1;
-    if (currentCardIndex >= flashCardsArray.length) {
-        currentCardIndex = 0; // Loop to  beginning
-    }
-    displayCard();
-}
-
-function showPreviousCard() {
-    if (!flashCardsArray || flashCardsArray.length === 0) return; //  guard clause
-    currentCardIndex = currentCardIndex - 1;
-    if (currentCardIndex < 0) {
-        currentCardIndex = flashCardsArray.length - 1; // Loop to  end
-    }
-    displayCard();
-}
-
-// block setsthe card display and navigation on startLearningpage.html
-if (cardQuestionElement && cardAnswerElement && nextButton && prevButton) {
-    displayCard();
-
-    nextButton.addEventListener('click', showNextCard);
-    prevButton.addEventListener('click', showPreviousCard);
-
-    if (frontPageButton) {
-        frontPageButton.addEventListener('click', function() { 
-            window.location.href = "index.html"; 
-        });
+  // Home button functionality
+  if (homeBtn) {
+      homeBtn.addEventListener("click", function () {
+          window.location.href = "index.html";
+      });
   }
 } else {
   
 }
 
-
-
-
+  
