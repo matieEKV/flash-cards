@@ -1,5 +1,5 @@
 //JavaScript file for FlashCards
-
+//having problems with merge...delete this
 //   array of cards
 let flashCardsArray = [
     {
