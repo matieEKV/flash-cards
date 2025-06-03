@@ -93,17 +93,15 @@ function closePopup() {
 
 // Open modal window for two player user input
 function openModal() {
-    modalContainer.classList.add("open-popup")
+    modalContainer?.classList.add("open-popup")
 }
 
-// open modal window when button clicked
-if (modalBtn) {
-    modalBtn.addEventListener('click', openModal);
-}
+// open modal window when button clicked 
+    modalBtn?.addEventListener('click', openModal);
 
 // close modal window
 function closeModal() {
-    modalContainer.classList.remove("open-popup")
+    modalContainer?.classList.remove("open-popup")
 }
 // remove dimmed and blurred background
 function unDim() {
@@ -504,7 +502,7 @@ function loadNextCard() {
 let retrievedFlashCards = JSON.parse(localStorage.getItem("flashCardsArray"));//get parsed array from local storage
 
 //card flipping and connecting to the array
-next.addEventListener('click', loadNextCard);
+next?.addEventListener('click', loadNextCard);
 
 // input answer by clicking the enter button
 // answers.forEach(answer => {
