@@ -1,5 +1,11 @@
 //  MARIA LINES START
 
+// localstorage set value
+localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+// get item
+var arrayStored = JSON.parse(localStorage.getItem("flashCardsArray"));
+console.log(arrayStored)
+
 ///  start button funtionalitytakes you to first question
 
 var startButton = document.getElementById("startButton");
@@ -30,11 +36,15 @@ if (flipCard) {
 
 // Create a working copy of flashcards for the current session/game
 let currentCards = flashCardsArray.length > 0 ? [...flashCardsArray] : [];
+console.log(currentCards);
+
 
 function loadNextCard() {
   if (!flipCard || !questionDiv || !answerDiv) {
      return;
+    
   }
+  
 
   if (currentCards.length === 0) {//when the end of the array is reached - u finished
       youhavefinished();
@@ -43,22 +53,29 @@ function loadNextCard() {
 
   const random = Math.floor(Math.random() * currentCards.length);
   const randomCard = currentCards[random];
+console.log(randomCard);
 
   questionDiv.innerText = randomCard.question;
+console.log(questionDiv);
 
   let answerHTML = "";
      if (randomCard.image) {
          answerHTML += "<img src='" + randomCard.image + "' style='max-width: 90%; max-height:120px; margin:10px auto;display:block;border-radius:5px;'>";
   }
+  console.log(randomCard.image);
+
   answerHTML += "<p>" + randomCard.answer + "</p>";
   answerDiv.innerHTML = answerHTML;
+console.log(answerDiv);
 
   // make card not flipped when goes to next one
   flipCard.classList.remove('flip');
+console.log(flipCard);
 
   // answerDiv.style.color =" #87A9AA"; 
 
-  currentCards.splice(random, 1); // remove card to prevent repeat  
+  currentCards.splice(random, 1);
+  console.log(currentCards); // remove card to prevent repeat  
 };
 
 function youhavefinished(){
@@ -68,11 +85,14 @@ function youhavefinished(){
   if (answerDiv) {
       answerDiv.innerHTML = "<p>YAY</p>"; // Use innerHTML if setting HTML content
   }
+  
 };
 
 // Eventlisteners for end  
 if (questionDiv && answerDiv && nextBtn && flipCard) { // Ensure flipCard is also checked
 loadNextCard();
+console.log(loadNextCard);
+
 
   // next button to use loadNextCard
   nextBtn.addEventListener("click", loadNextCard);
