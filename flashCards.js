@@ -1,6 +1,58 @@
 //JavaScript file for FlashCards
-
-//   array
+//having problems with merge...delete this
+//   array of cards
+let flashCardsArray = [
+    {
+        image: "images/hygge.png",
+        question: "What is the defining characteristic of Danish culture?",
+        answer: "Hygge."
+    },
+    {
+        image: "images/Lego.png",
+        question: "Which world-famous toy is made in Denmark?",
+        answer: "Lego"
+    },
+    {
+        image: "images/BIG.png",
+        question: "What is the name of the world famous contemporary architect from Denmark?",
+        answer: "BIG (Bjarke Ingels)"
+    },
+    {
+        image: "images/dannebrog.png",
+        question: "Danes are very proud of their flag. Do you know how they call it?",
+        answer: "Dannebrog"
+    },
+    {
+        image: "images/MadsMikkelsen.png",
+        question: "The famous actor from Denmark, who was nominated for an Oscar, is...",
+        answer: "Mads Mikkelsen"
+    },
+    {
+        image: "images/Pandora.png",
+        question: "The world-known jewelry brand originated in Copenhagen is...",
+        answer: "Pandora"
+    },
+    {
+        image: "images/B&O.png",
+        question: "Danish high-end audio and multimedia company known for its quality audio products is called...",
+        answer: "Bang & Olufsen (B&O)"
+    },
+    {
+        image: "images/ArneJakobsen.png",
+        question: "The name of the Danish architect and furniture designer, known for simple and well-designed chairs is...",
+        answer: "Arne Jakobsen"
+    },
+    {
+        image: "images/HCAndersen.png",
+        question: "Name of the Danish writer of plays, best remembered for his fairy tales is...",
+        answer: "Hans Christian Andersen"
+    },
+    {
+        image: "images/Oresund.png",
+        question: "Name of the second longest bridge in Europe, connecting Denmark and Sweden is...",
+        answer: "Öresund Bridge"
+    }
+  ];
 
 
 //  Start Button Funtionality-Takes you to first question-hygge
@@ -89,103 +141,55 @@ function addNamesHideContainer() {
     startGame?.addEventListener('click', addNamesHideContainer);
 
 
-//array of cards
-
-var flashCardsArray = [
-    {
-        image: "images/hygge.png" ,
-        question: "What is the defining characteristic of Danish culture?",
-        answer: "Hygge"
-    },
-    {
-        image: "images/Lego.png" ,
-        question: "Which world-famous toy is made in Denmark?",
-        answer: "Lego"
-    },
-    {   image: "images/BIG.png" ,
-        question: "What is the name of the world famous contemporary architect from Denmark?",
-        answer: "BIG (Bjarke Ingels)"
-    },
-    {   image: "images/dannebrog.png" ,
-        question: "Danes are very proud of their flag. Do you know how they call it?",
-        answer: "Dannebrog"
-    },
-    {   image: "images/MadsMikkelsen.png" ,
-        question: "The famous actor from Denmark, who was nominated for Oscar is..." ,
-        answer: "Mads Mikkelsen"
-    },
-    {   image: "images/Pandora.png" ,
-        question: "The world-known jewelry brand originated in Copenhagen is..." ,
-        answer: "Pandora"
-    },
-    {   image:  "images/B&O.png" , 
-        question: "Danish high-end audio and multimedia company known for its quality audio products is called..." ,
-        answer: "Bang&Olufsen (B&O)"
-    },
-    {   image: "images/ArneJakobsen.png" ,
-        question: "The name of the Danish architect and furniture designer, known for simple and well-designed chairs is..." ,
-        answer: "Arne Jakobsen"
-    },
-    {   image: "images/HCAndersen.png", 
-        question: "Name of the Danish writer of plays, best remembered for his fairy tales is.." ,
-        answer: "Hans Christian Andersen"
-    },
-    {   image: "images/Oresund.png" ,
-        question: "Name of the second longest bridge in Europe, connecting Denmark and Sweden is..." ,
-        answer: "Öresund Bridge"
-    }
-    ];
-    
-    // Let's check if the array is there
-    // console.log(flashCardsArray);
-
-
-    // save the new card from user
-
-    // let submitButon = document.getElementById('submitButton');
-    // let questionFromUser = document.getElementById('questionFromUser');
-    // let answerFromUser = document.getElementById('answerFromUser');
-
-    // submitButon?.addEventListener('click', () => {
-    //     const questionInput = questionFromUser.value;
-    //     const answerInput = answerFromUser.value;
-
-    //      //   Make sure that user did not submit empty fields
-    //     if (!questionInput || !answerInput) {
-    //         alert("Please enter both a question and an answer");
-    //         return;
-    //   }
-    //   // Saving user's input as a new const, along with provided default image
-    //   const newCard = {
-    //     image: "images/defaultImageForNewCard.png",
-    //     question: questionInput,
-    //     answer: answerInput
-    //   };
-
-    //    //adding new card on the end of our flashCardArray
-    //   flashCardsArray.push(newCard);
-
-    //   //saving the whole array with the new card on local storage
-    //   //The array needs to be stringified before saving in local storage.
-    //   localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
-
-    //   // alert for user > I should style this
-    //   alert("New flashcard saved successfully");
-
-    //    // Clear input fields after saving
-    //   document.getElementById("questionFromUser").value = "";
-    //   document.getElementById("answerFromUser").value = "";
-      
-    // })
-    // document.getElementById("submitButton").addEventListener("click", () => {
-    //   const questionInput = document.getElementById("questionFromUser").value.trim();
-    //   const answerInput = document.getElementById("answerFromUser").value.trim();
-
+// ANDJELA LINES START
    
+// Let's check if the array is there
+console.log(flashCardsArray);
 
-    // ANDJELA LINES START
-      
-    
+// Check if the submit button exists before attaching the event listener
+const submitButton = document.getElementById("submitButton");
+
+if (submitButton) {
+  // Save the new card from user
+  submitButton.addEventListener("click", () => {
+    const questionInputNewCard = document.getElementById("questionFromUser").value;
+    const answerInputNewCard = document.getElementById("answerFromUser").value;
+
+    // Make sure that user did not submit empty fields
+    if (!questionInputNewCard || !answerInputNewCard) {
+      alert("Please enter both a question and an answer.");
+      return;
+    }
+
+    // Saving user's input as a new const, along with provided default image
+    const newCard = {
+      image: "images/defaultImageForNewCard",
+      question: questionInputNewCard,
+      answer: answerInputNewCard
+    };
+
+    // Adding new card to the end of our flashCardsArray
+    flashCardsArray.push(newCard);
+
+
+    // Saving the whole array with the new card to local storage
+    localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
+
+    // Test to see if the card is saved
+    console.log("New flashcard saved:", newCard);
+
+    // Alert for user
+    alert("New flashcard saved successfully.");
+
+    // Clear input fields after saving
+    document.getElementById("questionFromUser").value = "";
+    document.getElementById("answerFromUser").value = "";
+
+    // Test to see the array
+    console.log("New array is saved in LOCAL STORAGE:", flashCardsArray);
+  });
+}  
+
 
 
 
@@ -621,6 +625,5 @@ function downloadJSON() {
 
 
 
+
 // MATEA LINES STOP
-
-
