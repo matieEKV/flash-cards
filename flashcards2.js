@@ -34,14 +34,6 @@ if (flipCard) {
   });
 }
 
-// makes sure cards not repeat 
-// let currentCards;
-// if (flashCardsArray.length > 0) {
-//   currentCards = [...flashCardsArray];
-// } else {
-//   currentCards = [];
-// }
-// console.log(currentCards);
 
 // guard clause/ this checks if the html elements are there- if therenare not there it stops the fuction 
 function loadNextCard() {
