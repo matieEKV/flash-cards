@@ -65,11 +65,11 @@ console.log(questionDiv);
 
   let answerHTML = "";
      if (randomCard.image) {
-         answerHTML += "<img src='" + randomCard.image + "' style='max-width: 90%; max-height:120px; margin:10px auto; display:block; border-radius:5px;'>";
+         answerHTML += "<img src='" + randomCard.image + "' style='max-width: 90%; max-height:170px; position:absolute; top:0%;  margin:10px auto; display:block; border-radius:5px;'>";
   }
   console.log(randomCard.image);
 
-  answerHTML += "<p>" + randomCard.answer + "</p>";
+  answerHTML += "<p>" + randomCard.answer +"</p>";
   answerDiv.innerHTML = answerHTML;
 console.log(answerDiv);
 
