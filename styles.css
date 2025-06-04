@@ -461,20 +461,21 @@ body {
 #frontPage {
    position: absolute;
    top: 1%;
+   
 }
 
-  #btn-next1, #btn-next2, #btn-next3{
-   position: absolute;
+  /* #btn-next1  {
+   position: relative;
    right: -0%;
    bottom: 1%;
 }
 
-#btn-back1, #btn-back2, #btn-back3{
-   position: absolute;
+#btn-back1  {
+   position: relative;
    left: -0%;
    bottom: 1%;
    
-}
+} */
 
 
 
@@ -487,11 +488,12 @@ body {
     
 /* Danmark 101 button */
 #Danmark101Button {
-    width: 370px;
-    height: 60px;
-    font-size: 32px;
-    margin-top: 200px;
+   width: 17.5rem;
+    height: 3.75;
+    font-size: 1.5rem;
+    margin-top: 1.25rem;
     margin-bottom: 50px;
+   
 }
 
 /* card */
@@ -546,7 +548,15 @@ input::placeholder {
     text-decoration: underline;
 }
 
-
+.footer {
+   position: relative;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: #FE3F42;
+   text-align: center;
+   gap:top ;
+ }
 
 
 
