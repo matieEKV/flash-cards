@@ -34,7 +34,7 @@ if (flipCard) {
   });
 }
 
-
+let currentCards = flashCards.length > 0 ? [...flashCards] : [];
 // guard clause/ this checks if the html elements are there- if therenare not there it stops the fuction 
 function loadNextCard() {
   if (!flipCard || !questionDiv || !answerDiv) {
