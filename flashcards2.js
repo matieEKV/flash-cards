@@ -42,7 +42,6 @@ function loadNextCard() {
     
   }
   
-
   if (currentCards.length === 0) {//when the end of the array is reached - u finished
       youhavefinished();
       return; // Exit if no cards left
