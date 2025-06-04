@@ -4,6 +4,7 @@
 body {
    margin: 0;
    padding: 0;
+   max-width:100%;height:auto;
     background: url(./images/denmarkBackground.png) no-repeat center center/cover;
    background-color: rgba(255,255,255,0.9);
    background-blend-mode: lighten;
@@ -101,7 +102,7 @@ body {
     width: 280px;
     height: 60px;
     background-color: white;
-    border: 5px solid #FE3F42;
+    border: 2px solid #FE3F42;
     color: #FE3F42;
     font-family: 'Arial'; /* Font type */
     font-size: 24px;
@@ -459,19 +460,20 @@ body {
 
 #frontPage {
    position: absolute;
-   top: 10%;
+   top: 1%;
 }
 
   #btn-next1, #btn-next2, #btn-next3{
    position: absolute;
    right: -0%;
-   bottom: 10%;
+   bottom: 1%;
 }
 
 #btn-back1, #btn-back2, #btn-back3{
    position: absolute;
    left: -0%;
-   bottom: 10%;
+   bottom: 1%;
+   
 }
 
 
