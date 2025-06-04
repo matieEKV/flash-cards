@@ -1,7 +1,7 @@
 //  MARIA LINES START
 
 //   array
-import { flashCardsArray} from './flashcarArray.js'
+ import { flashCardsArray} from './flashcarArray.js'
 // localstorage set value
 localStorage.setItem("flashCardsArray", JSON.stringify(flashCardsArray));
 // get item
@@ -18,9 +18,9 @@ var arrayStored = JSON.parse(localStorage.getItem("flashCardsArray"));
 
 // Get elements from page
 var questionDiv = document.getElementById("cardQuestion");
-var answerDiv = document.getElementById("cardAnswer");
+var answerDiv = document.getElementById("cardAnswer"); 
 var nextBtn = document.getElementById("btn-next1");
-// var backBtn = document.getElementById("btn-back1");
+var backBtn = document.getElementById("btn-back1");
 var flipCard = document.querySelector("#cardContainer .card");
 var homeBtn = document.getElementById("frontPage");
 
@@ -31,26 +31,23 @@ if (flipCard) {
   });
 }
 
-
-
-
 // Create a working copy of flashcards for the current session/game
-let currentCards = flashCardsArray.length > 0 ? [...flashCardsArray] : [];
+//  let arrayStored = flashCardsArray.length > 0 ? [...flashCardsArray] : [];
 
 
 
 function loadNextCard() {
+
   if (!flipCard || !questionDiv || !answerDiv) {
      return;
   }
-  
-  if (currentCards.length === 0) {//when the end of the array is reached - u finished
+  if (arrayStored.length === 0) {//when the end of the array is reached - u finished
       youhavefinished();
       return; // Exit if no cards left
   }
 
-  const random = Math.floor(Math.random() * currentCards.length);
-  const randomCard = currentCards[random];
+  const random = Math.floor(Math.random() * arrayStored.length);
+  const randomCard = arrayStored[random];
 
   questionDiv.innerText = randomCard.question;
 
@@ -66,18 +63,19 @@ function loadNextCard() {
   flipCard.classList.remove('flip');
 
   //  answerDiv.style.color =" #87A9AA"; 
-
-  currentCards.splice(random, 1);// remove card to prevent repeat  
+  // storePrevious(random)
+  arrayStored.splice(random, 1);// remove card to prevent repeat  
+  
 };
 
 
 
 function youhavefinished(){
   if (questionDiv) {
-      questionDiv.innerText = "U Finished!";
+      questionDiv.innerText = "You Finished!";
   }
   if (answerDiv) {
-      answerDiv.innerHTML = "<p>YAY</p>"; // Use innerHTML if setting HTML content
+      answerDiv.innerHTML = "<p>TYLLYKE</p>"; // Use innerHTML if setting HTML content
   }
 };
 
@@ -87,6 +85,7 @@ loadNextCard();
 
   // next button to use loadNextCard
   nextBtn.addEventListener("click", loadNextCard);
+//  backBtn.addEventListener("click", storePrevious );
 
   // Home button functionality
   if (homeBtn) {
@@ -96,4 +95,8 @@ loadNextCard();
   }
 } 
 
-  
+// function storePrevious(index) {
+//   const randomCard = arrayStored[index] 
+//  answerDiv.innerHTML = randomCard.answer;
+//  questionDiv.innerText = randomCard.question;
+// }

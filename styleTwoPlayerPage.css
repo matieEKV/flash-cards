@@ -391,3 +391,13 @@ body {
    left: 20%;
    backface-visibility: hidden;
 }
+
+.footer {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: #FE3F42;
+   text-align: center;
+   gap:top ;
+ }
