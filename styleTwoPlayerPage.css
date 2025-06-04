@@ -1,0 +1,393 @@
+body {
+   background: url(./images/denmarkBackground.png) no-repeat center center/cover;
+   background-color: rgba(255,255,255,0.9);
+   background-blend-mode: lighten;
+   height: 100vh;
+   display: flex;
+   justify-content: center; /* adjust positioning on the main axis */
+   flex-wrap: nowrap; 
+}
+
+.welcome {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: larger;
+   font-weight: 500;
+   color: white;
+}
+
+.bodyText{
+   font-family: Arial, Helvetica, sans-serif;
+   color: white;
+   gap: 40px;
+   margin-top: 55px;
+}
+
+.welcome{
+   color: red;
+   border-bottom: solid red;
+   padding-bottom: 10px;
+}
+
+.bodyText{
+   color: red;
+   margin-top: 0%;
+}
+
+.top-welcome, .gameButtonContainer {
+   width: 488px;
+   height: 217px;
+   text-align: center;
+   justify-content: center;
+   position: absolute;
+   left: 31%;
+
+}
+
+.button {
+    width: 370px;
+    height: 60px;
+    background-color: white;
+    border: 5px solid #FE3F42;
+    color: #FE3F42;
+    font-family: 'Arial'; /* Font type */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer; /* A "hand" appears when the cursor is on a button*/
+    border-radius: 32px;
+    transition: background-color 0.3s, color 0.3s;
+    
+  }
+
+  .button:hover {
+    background-color: #FE3F42;
+    color: white;
+  }
+
+ .button:active {
+    background-color: white;
+    color: red;
+  }
+
+  .container {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.bodyquestion{
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* position the front and back side */
+.flashCard {
+   position: relative;
+   width: 600px;
+   height: 425px;
+   text-align: center;
+   transition: transform 1.3s;
+   transform-style: preserve-3d;
+}
+
+.flashCard:active {
+   transform: scale(0.97);
+   transition: transform .2s;
+}
+
+.flashCard.flip {
+   transform: rotateY(180deg);
+}
+.frontCard,
+.backCard{
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 30px ;
+   font-family: Arial, Helvetica, sans-serif;
+   box-shadow: 0 0 5px 2px (50, 50, 50, 0.25);
+   border-radius: 32px;
+   position: absolute;
+   color: white;
+}
+
+.frontCard{
+   background: linear-gradient(#87A9AA);
+   z-index: 2;
+   backface-visibility: hidden;
+   position: absolute; 
+}
+
+.backCard{
+   background: linear-gradient(#87A9AA);
+   z-index: 1;
+   transform: rotateY(180deg);
+   backface-visibility: hidden;
+}
+
+.popupContainer, .modalContainer {
+   width: 430px;
+   height: 420px;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(0.1);
+   visibility: hidden;
+   transition: transform 0.4s, top 0.4s; 
+   background-color: rgba(255,255,255,0.9);
+   border-radius: 30px;
+   animation-name: animatewindow;
+   animation-duration: .4s;
+   z-index: 15;  /* has to be the top most position */
+   padding: 10px;
+   padding-left: 20px;
+}
+/* animate appearing window */
+@keyframes animatewindow {
+    from {
+        top: -300px;
+        opacity:0;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+/* style of popup window and modal window*/
+  .popup, #modal {
+    width: 400px;
+    height: 325px;
+    border: solid #87A9AA 8px;
+    border-radius: 32px;
+    opacity: 100%;
+    margin: 10px;
+    color: #FE3F42;
+    font-family: 'Inria Serif'; /* Font type */
+  }
+
+  /* dim the background when button clicked */
+  #overlay {
+  position: fixed; 
+  display: none; 
+  width: 100%; 
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  backdrop-filter: blur(3px);
+  z-index: 14; 
+  cursor: pointer;
+  }
+
+   /* buttons in popup window for cards download and modal for two player game */
+  .buttonPopup {
+    width: 200px; 
+    height: 50px;
+    background-color: white;
+    border: 2px solid #FE3F42;
+    color: #FE3F42;
+    font-family: 'Arial'; /* Font type */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer; /* A "hand" appears when the cursor is on a button*/
+    border-radius: 32px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+
+  .buttonPopup:hover {
+    background-color: #FE3F42;
+    color: white;
+  }
+   
+  /* change colof of button when clicked */
+  .buttonPopup:active {
+    background-color: white;
+    color: red;
+  }
+
+  #yesButton {
+    margin-right: 10px;
+  }
+   /* popup window opens */
+  .open-popup {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+   /* json icon styling */
+  #icon {
+    width: 55%;
+    position: relative;
+    left: 25%;
+    bottom:10%;
+  }
+
+  /* TWO PLAYER MODE PAGE STYLING */
+
+  /* styling the top banner on the page */
+  .topWelcome, .gameButtonContainer {
+   width: 488px;
+   height: 217px;
+   text-align: center;
+   justify-content: center;
+   position: absolute;
+   left: 31%;
+}
+
+  /* dimming and bluring background to be set as default */
+  #overlayTwo {
+  position: fixed; 
+  display: block;
+  width: 100%; 
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  backdrop-filter: blur(3px);
+  z-index: 14; 
+  cursor: pointer;
+  }
+
+/* style for return to home page button */
+  #returnToMain {
+   position: absolute;
+   margin-top: 25px;
+   margin-left: 75px;
+   z-index: 15;
+  }
+
+  /* style for restart game button*/
+  #restartButton {
+   position: absolute;
+   right: 5%;
+   margin-top: 25px;   
+  }
+
+  /* create players button and div */
+#modal {
+   text-align:center;
+   vertical-align:middle; 
+   display:table-cell;
+}
+
+.playerInput {
+   margin: 20px 0px;
+}
+
+/* styling name boxes for players */
+.playerBox {
+   background-color: white;
+   border: solid 2px #FE3F42;
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 20px;
+   border-radius: 32px;
+   height: 300px;
+   width: 200px;
+   padding: 15px;
+   margin: 60px;
+   margin-top: 150px;
+}
+
+/* style the score box */
+.score {
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 4rem;
+   margin-top: 20px;
+   text-align: center;
+   position: center;
+}
+
+/* style for answer box */
+.answer {
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 20px;
+   margin-top: 20px;
+   text-align: center;
+   position: center;
+}
+
+.playerName {
+   text-align: center;
+   position: center;
+}
+
+/* style for answer input */
+.answerInput {
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   font-size: 20px;
+   width: 400px;
+   height: 50px;
+   margin-top: 60px;
+   max-width: 200px;
+   text-align: center;
+}
+
+.answerLabel {
+   display: flex;
+   flex-direction: column; 
+   text-align: center;
+   gap: 10px;
+}
+
+.submit {
+   background-color: white;
+   border: 2px solid #FE3F42;
+   color: #FE3F42;
+   font-family: 'Arial'; /* Font type */
+   border-radius: 32px;
+   margin-top: 10px;
+   width: 100px;
+   height: 25px;
+}
+
+.submit:hover {
+    background-color: #FE3F42;
+    color: white;
+  }
+
+.submit:active {
+    background-color: white;
+    color: red;
+  }
+
+/* container for the create new button, needs to disappear after creating players */
+.gameButtonContainer {
+   background-color: transparent;
+   z-index: 15;
+   width: 500px;
+   height: 100px;
+   top: 4%;
+   display: block;
+} 
+
+#showAnswer {
+   position: absolute;
+   bottom: 5%;
+   border: solid 2px #FE3F42;
+}
+
+#nextCard {
+   position: fixed;
+   bottom: 5%;
+   border: solid 2px #FE3F42;
+   z-index: 3;
+   transform: rotateY(180deg);
+   left: 20%;
+   backface-visibility: hidden;
+}
