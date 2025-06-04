@@ -8,12 +8,12 @@ console.log(arrayStored)
 
 ///  start button funtionalitytakes you to first question
 
-var startButton = document.getElementById("startButton");
-if (startButton) {
-    startButton.onclick = function () {
-        window.location.href = "startLearningpage.html";
-    };
-}
+// var startButton = document.getElementById("startButton");
+// if (startButton) {
+//     startButton.onclick = function () {
+//         window.location.href = "startLearningpage.html";
+//     };
+// }
 
 //   array
 import { flashCardsArray} from './flashcarArray.js'
@@ -23,7 +23,7 @@ import { flashCardsArray} from './flashcarArray.js'
 var questionDiv = document.getElementById("cardQuestion");
 var answerDiv = document.getElementById("cardAnswer");
 var nextBtn = document.getElementById("btn-next1");
-var backBtn = document.getElementById("btn-back1");
+// var backBtn = document.getElementById("btn-back1");
 var flipCard = document.querySelector("#cardContainer .card");
 var homeBtn = document.getElementById("frontPage");
 
@@ -34,11 +34,16 @@ if (flipCard) {
   });
 }
 
-// Create a working copy of flashcards for the current session/game
-let currentCards = flashCardsArray.length > 0 ? [...flashCardsArray] : [];
+// makes sure cards not repeat 
+let currentCards;
+if (flashCardsArray.length > 0) {
+  currentCards = [...flashCardsArray];
+} else {
+  currentCards = [];
+}
 console.log(currentCards);
 
-
+// guard clause/ this checks if the html elements are there- if therenare not there it stops the fuction 
 function loadNextCard() {
   if (!flipCard || !questionDiv || !answerDiv) {
      return;
@@ -60,7 +65,7 @@ console.log(questionDiv);
 
   let answerHTML = "";
      if (randomCard.image) {
-         answerHTML += "<img src='" + randomCard.image + "' style='max-width: 90%; max-height:120px; margin:10px auto;display:block;border-radius:5px;'>";
+         answerHTML += "<img src='" + randomCard.image + "' style='max-width: 90%; max-height:120px; margin:10px auto; display:block; border-radius:5px;'>";
   }
   console.log(randomCard.image);
 
@@ -72,11 +77,13 @@ console.log(answerDiv);
   flipCard.classList.remove('flip');
 console.log(flipCard);
 
-  // answerDiv.style.color =" #87A9AA"; 
+  //  answerDiv.style.color =" #87A9AA"; 
 
   currentCards.splice(random, 1);
   console.log(currentCards); // remove card to prevent repeat  
 };
+
+
 
 function youhavefinished(){
   if (questionDiv) {
